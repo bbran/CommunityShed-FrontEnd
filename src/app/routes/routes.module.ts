@@ -17,9 +17,7 @@ const routes: Routes = [
   { path: 'homepage',  component: HomepageComponent },
   { path: 'signup',  component: SignUpComponent },
   { path: 'login',  component: LogInComponent },
-
-  { path: 'mygroups',  component: MygroupsComponent }
-
+  { path: 'mygroups',  component: MygroupsComponent },
   { path: 'communityshed', component: CommunityShedComponent}
 
 ];

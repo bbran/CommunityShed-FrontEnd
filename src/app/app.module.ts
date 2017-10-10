@@ -33,9 +33,7 @@ import { CommunityShedComponent } from './community-shed/community-shed.componen
     NewGroupFormComponent,
     NavigationComponent,
     HomepageComponent,
-
-    MygroupsComponent
-
+    MygroupsComponent,
     CommunityShedComponent
 
   ],

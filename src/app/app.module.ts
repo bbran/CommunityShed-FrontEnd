@@ -16,6 +16,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { HomepageComponent } from './homepage/homepage.component';
 
 import { RoutesModule }   from './routes/routes.module';
+import { MygroupsComponent } from './mygroups/mygroups.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { RoutesModule }   from './routes/routes.module';
     LogInComponent,
     NewGroupFormComponent,
     NavigationComponent,
-    HomepageComponent
+    HomepageComponent,
+    MygroupsComponent
   ],
   imports: [
     BrowserModule,

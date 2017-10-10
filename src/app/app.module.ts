@@ -20,19 +20,11 @@ import { HomepageComponent } from './homepage/homepage.component';
 @NgModule({
   declarations: [
     AppComponent,
-
-    SignUpComponent
-
-    LogInComponent
-
-
-    NewGroupFormComponent
-
-
-    NavigationComponent
-
+    SignUpComponent,
+    LogInComponent,
+    NewGroupFormComponent,
+    NavigationComponent,
     HomepageComponent
-
   ],
   imports: [
     BrowserModule,

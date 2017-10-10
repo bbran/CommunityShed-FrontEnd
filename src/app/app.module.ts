@@ -18,7 +18,11 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { HomepageComponent } from './homepage/homepage.component';
 
 import { RoutesModule }   from './routes/routes.module';
+
+import { MygroupsComponent } from './mygroups/mygroups.component';
+
 import { CommunityShedComponent } from './community-shed/community-shed.component';
+
 
 
 @NgModule({
@@ -29,7 +33,11 @@ import { CommunityShedComponent } from './community-shed/community-shed.componen
     NewGroupFormComponent,
     NavigationComponent,
     HomepageComponent,
+
+    MygroupsComponent
+
     CommunityShedComponent
+
   ],
   imports: [
     BrowserModule,

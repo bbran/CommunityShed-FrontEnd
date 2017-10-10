@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignUpComponent } from '../sign-up/sign-up.component';
 import { HomepageComponent } from '../homepage/homepage.component';
 import { LogInComponent } from '../log-in/log-in.component';
-
+import { MyshedComponent } from '../myshed/myshed.component';
 import { MygroupsComponent } from '../mygroups/mygroups.component';
 import { CommunityShedComponent } from '../community-shed/community-shed.component';
 import { RequestFormComponent } from '../request-form/request-form.component';
@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'login',  component: LogInComponent },
   { path: 'mygroups',  component: MygroupsComponent },
   { path: 'communityshed', component: CommunityShedComponent},
-  { path: 'requestform', component: RequestFormComponent}
+  { path: 'requestform', component: RequestFormComponent},
+  { path: 'myshed', component: MyshedComponent}
 
 ];
 

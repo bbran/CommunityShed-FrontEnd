@@ -22,7 +22,11 @@ import { RoutesModule }   from './routes/routes.module';
 import { MygroupsComponent } from './mygroups/mygroups.component';
 
 import { CommunityShedComponent } from './community-shed/community-shed.component';
+
 import { RequestFormComponent } from './request-form/request-form.component';
+
+import { MyshedComponent } from './myshed/myshed.component';
+
 
 
 
@@ -36,7 +40,9 @@ import { RequestFormComponent } from './request-form/request-form.component';
     HomepageComponent,
     MygroupsComponent,
     CommunityShedComponent,
-    RequestFormComponent
+    RequestFormComponent,
+    MyshedComponent
+
 
   ],
   imports: [

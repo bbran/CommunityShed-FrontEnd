@@ -5,12 +5,32 @@ import { RouterModule }   from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+
 import { LogInComponent } from './log-in/log-in.component';
+
+import { NewGroupFormComponent } from './new-group-form/new-group-form.component';
+
+import { NavigationComponent } from './navigation/navigation.component';
+
+import { HomepageComponent } from './homepage/homepage.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
+
     LogInComponent
+
+
+    NewGroupFormComponent
+
+
+    NavigationComponent
+
+    HomepageComponent
+
+
   ],
   imports: [
     BrowserModule,

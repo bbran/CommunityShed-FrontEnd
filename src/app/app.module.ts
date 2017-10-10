@@ -5,6 +5,7 @@ import { RouterModule }   from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 import { LogInComponent } from './log-in/log-in.component';
 
@@ -20,6 +21,8 @@ import { HomepageComponent } from './homepage/homepage.component';
   declarations: [
     AppComponent,
 
+    SignUpComponent
+
     LogInComponent
 
 
@@ -29,7 +32,6 @@ import { HomepageComponent } from './homepage/homepage.component';
     NavigationComponent
 
     HomepageComponent
-
 
   ],
   imports: [

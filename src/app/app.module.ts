@@ -15,6 +15,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 
 import { HomepageComponent } from './homepage/homepage.component';
 
+import { RoutesModule }   from './routes/routes.module';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     BrowserModule,
     FormsModule,
     RouterModule,
-    HttpModule
+    HttpModule,
+    RoutesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

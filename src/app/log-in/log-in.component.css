@@ -1,0 +1,14 @@
+.loginform {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+input {
+    width: 300px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}

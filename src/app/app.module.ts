@@ -28,6 +28,8 @@ import { RequestFormComponent } from './request-form/request-form.component';
 import { MyshedComponent } from './myshed/myshed.component';
 import { GroupdetailsComponent } from './groupdetails/groupdetails.component';
 import { GroupdetailsmembersComponent } from './groupdetailsmembers/groupdetailsmembers.component';
+import { TooldetailsComponent } from './tooldetails/tooldetails.component';
+
 
 
 
@@ -45,7 +47,9 @@ import { GroupdetailsmembersComponent } from './groupdetailsmembers/groupdetails
     RequestFormComponent,
     MyshedComponent,
     GroupdetailsComponent,
-    GroupdetailsmembersComponent
+    GroupdetailsmembersComponent,
+    TooldetailsComponent
+
 
 
   ],

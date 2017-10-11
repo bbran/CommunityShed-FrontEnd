@@ -11,6 +11,7 @@ import { CommunityShedComponent } from '../community-shed/community-shed.compone
 import { RequestFormComponent } from '../request-form/request-form.component';
 import { GroupdetailsComponent } from '../groupdetails/groupdetails.component';
 import { GroupdetailsmembersComponent } from '../groupdetailsmembers/groupdetailsmembers.component';
+import { TooldetailsComponent } from '../tooldetails/tooldetails.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
@@ -22,8 +23,13 @@ const routes: Routes = [
   { path: 'requestform', component: RequestFormComponent },
   { path: 'myshed', component: MyshedComponent },
   { path: 'groupdetails', component: GroupdetailsComponent },
-  { path: 'groupdetailsmembers', component: GroupdetailsmembersComponent }
+  { path: 'groupdetailsmembers', component: GroupdetailsmembersComponent },
+  { path: 'tooldetails', component: TooldetailsComponent }
+
 ];
+
+
+
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

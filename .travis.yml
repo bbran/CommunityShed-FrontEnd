@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+- '8'
+deploy:
+  provider: heroku
+  app: community-shed
+  api_key:
+    secure: bxh9nL5RbmCyJCF8TODW6CKM8obYi5Gk/NgKCyyJ99t4xZJmyaHDh7+gmst417jSCeyDDDSNQN99i5sv86JQIMK/FdvWd+LPcK7lteCeGvKfxV+FfDQPzi4c+o+k2IOko35TDMFXDv+/XD6geE8O3QtwHj6jrRg3NBS9BYDbcN9YJF8dGYzjRjayWKH4eVJSZbFC1r0mP18GKT/nQrJaP6fLzFcLsoJtXTslKKaWZlQp1sEHO/lrFMXQ/pKlNx0D6rS0+7+y0xkSlVkDj6q2M547BGPpEmT57zf97bBKvRovYxtWM5+G1FVLk7a9DPTESpjAkvYGcmBffZm7hgJg2kgsV3/VdDqrrw+AiWjau7xdfCUSn99TBgaQZ4aqXYJQyi19S9/2GqtF4R5zzGe4avvtbf+BperW56LzFXApZW7ZRxnYvfawcC304ACL2Cx/mYE6ItAQyDYTtBkiQ/dB/1ol29vmEoPPcONlJBhMgBfsOxErXxvjCKVFn1sktS3YxCQG9qZSBBiEr0IvDB30WAXjamRHdmiQyXXerk8WOA2zLibC/PnbvgdxEq34UC3e8PT6/RuLnVpz7gN2Vb1OU495V1juAVRl4s37AAtNCXCjOTtvSl+YDvcTlfKVk45cvxDXVNUNKsjt4bJclIA1+Tqw+wQk6zpoNQ5Fb42BNuY=

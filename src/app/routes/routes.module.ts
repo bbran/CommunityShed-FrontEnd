@@ -9,7 +9,7 @@ import { MyshedComponent } from '../myshed/myshed.component';
 import { MygroupsComponent } from '../mygroups/mygroups.component';
 import { CommunityShedComponent } from '../community-shed/community-shed.component';
 import { RequestFormComponent } from '../request-form/request-form.component';
-
+import { TooldetailsComponent } from '../tooldetails/tooldetails.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
@@ -17,11 +17,13 @@ const routes: Routes = [
   { path: 'signup',  component: SignUpComponent },
   { path: 'login',  component: LogInComponent },
   { path: 'mygroups',  component: MygroupsComponent },
-  { path: 'communityshed', component: CommunityShedComponent},
-  { path: 'requestform', component: RequestFormComponent},
-  { path: 'myshed', component: MyshedComponent}
+  { path: 'communityshed', component: CommunityShedComponent },
+  { path: 'requestform', component: RequestFormComponent },
+  { path: 'myshed', component: MyshedComponent },
+  { path: 'tooldetails', component: TooldetailsComponent }
 
 ];
+
 
 
 @NgModule({

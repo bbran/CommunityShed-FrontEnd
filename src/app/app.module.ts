@@ -26,6 +26,7 @@ import { CommunityShedComponent } from './community-shed/community-shed.componen
 import { RequestFormComponent } from './request-form/request-form.component';
 
 import { MyshedComponent } from './myshed/myshed.component';
+import { GroupdetailsComponent } from './groupdetails/groupdetails.component';
 
 
 
@@ -41,7 +42,8 @@ import { MyshedComponent } from './myshed/myshed.component';
     MygroupsComponent,
     CommunityShedComponent,
     RequestFormComponent,
-    MyshedComponent
+    MyshedComponent,
+    GroupdetailsComponent
 
 
   ],

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../data.service';
 import { NgForm } from '@angular/forms';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',

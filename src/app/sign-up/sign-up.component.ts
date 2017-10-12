@@ -24,7 +24,7 @@ submitNewUser(){
   this.dataservice.createNewUser(this.userData.value) 
     .subscribe (
       result => {
-        if (result === true) {
+        if (result !== null) {
           alert("User created successfully.")
           this.router.navigateByUrl('/communityshed');
         } else {

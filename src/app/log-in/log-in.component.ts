@@ -22,17 +22,17 @@ export class LogInComponent implements OnInit {
     console.log(this.userData.value)
   
     this.dataservice.logIn(this.userData.value) 
-      // .subscribe (
-      //   result => {
-      //     if (result === true) {
-      //       alert("User created successfully.")
-      //       this.router.navigateByUrl('/communityshed');
-      //     } else {
-      //       alert ("Email is already reagistered. Please register with unique email.")
-      //     }
-      //   },
-      //   error => console.log(error)
-      // )
+      .subscribe (
+        result => {
+          if (result !== null) {
+            alert("User created successfully.")
+            this.router.navigateByUrl('/communityshed');
+          } else {
+            alert ("Email is already reagistered. Please register with unique email.")
+          }
+        },
+        error => console.log(error)
+      )
   
   }
 }

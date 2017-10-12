@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SignUpService } from '../sign-up.service';
+import { DataService } from '../data.service';
 import { NgForm } from '@angular/forms';
 import {Router} from '@angular/router';
 
@@ -13,7 +13,7 @@ export class SignUpComponent implements OnInit {
 
   @ViewChild('signUpForm') userData: NgForm;
 
-  constructor(private signupservice: SignUpService, private router: Router) { }
+  constructor(private dataservice: DataService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -21,7 +21,7 @@ export class SignUpComponent implements OnInit {
 submitNewUser(){
   console.log(this.userData.value)
 
-  this.signupservice.createNewUser(this.userData.value) 
+  this.dataservice.createNewUser(this.userData.value) 
     .subscribe (
       result => {
         if (result === true) {

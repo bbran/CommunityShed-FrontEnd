@@ -29,7 +29,7 @@ import { MyshedComponent } from './myshed/myshed.component';
 import { GroupdetailsComponent } from './groupdetails/groupdetails.component';
 import { GroupdetailsmembersComponent } from './groupdetailsmembers/groupdetailsmembers.component';
 import { TooldetailsComponent } from './tooldetails/tooldetails.component';
-import { SignUpService } from './sign-up.service';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +56,7 @@ import { SignUpService } from './sign-up.service';
     RoutesModule,
     DataTablesModule
   ],
-  providers: [SignUpService],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

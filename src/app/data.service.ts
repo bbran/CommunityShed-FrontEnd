@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class SignUpService {
+export class DataService {
 
   private endpoint: string = "https://communityshed.herokuapp.com/api/users";
   status;

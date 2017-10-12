@@ -1,26 +1,10 @@
 <app-navigation></app-navigation>
-<p>
-  myGroups
-</p>
-
+<div class="mygroups">
+<h3>My Groups</h3>
 <ul>
-  <li>list 1</li>
-  <li>list 2</li>
+  <li *ngFor="let group of groups">{{group?.groupName}}</li>
 </ul>
 
-<button>Button to add new group</button>
-<!-- 
-<ul>
-  <li *ngFor="let favoriteThing of favoriteThings" (click)="clickedThing(favoriteThing)">{{favoriteThing.id}}  {{favoriteThing.name}}</li>
-</ul>
+<button>Add a New Group</button>
 
-<br>
-<br>
-
-<div *ngIf="selectedThing">
-  Update the selected thing:
-  <br>
-  <input type="text" [(ngModel)]="selectedThing.id">
-  <br>
-  <input type="text" [(ngModel)]="selectedThing.name">
-</div> -->
+</div>

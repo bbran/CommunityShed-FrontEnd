@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-mygroups',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MygroupsComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  groups: any[];
+  
+    constructor(private dataservice: DataService) { }
+  
+    ngOnInit() {
+      this.displayMyGroups()
+    }
+  
+    displayMyGroups(){
+      this.dataservice.getMyGroups()
+        .subscribe(
+          results => {
+            if (results !== null) {
+              this.groups = results
+            } else {
+              alert ("no results found")
+            }
+          },
+          error => console.log(error)
+        )
+      console.log(this.groups)
+    }
+  
   }
-
-}
+  

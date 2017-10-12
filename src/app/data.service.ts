@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers } from '@angular/http'
+import { Http, Response, Headers, RequestOptionsArgs } from '@angular/http'
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -13,16 +14,23 @@ export class DataService {
   private baseURL: string = "https://communityshed.herokuapp.com/api/";
   status;
 
-  constructor(private http: Http) { }
+  private commonHttpOptions: RequestOptionsArgs;
+
+  constructor(private http: Http) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    this.commonHttpOptions = { headers, withCredentials: true };
+  }
 
   //Sign up page to create a new user
 
   createNewUser(userData: object): Observable<any> {
     const objectToSend = JSON.stringify(userData);
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
 
-    return this.http.post(this.baseURL + 'users', objectToSend, { headers: headers })
+    const options: RequestOptionsArgs = {}
+
+    return this.http
+      .post(this.baseURL + 'users', objectToSend, this.commonHttpOptions)
       .map(this.extractData)
       .catch (this.handleError)
   }
@@ -31,12 +39,19 @@ export class DataService {
 
   logIn(userData: object): Observable<any> {
     const objectToSend = JSON.stringify(userData);
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
 
-    return this.http.put(this.baseURL + 'sessions/mine', objectToSend, { headers: headers })
+    return this.http
+      .put(this.baseURL + 'sessions/mine', objectToSend, this.commonHttpOptions)
       .map(this.extractData)
       .catch (this.handleError)
+  }
+
+  //get all community tools
+  getCommunityTools(): Observable<any> {
+    return this.http
+      .get(this.baseURL + 'tools', this.commonHttpOptions)
+      .map(this.extractData)
+      .catch(this.handleError)
   }
 
   //success method for all service calls

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-community-shed',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommunityShedComponent implements OnInit {
 
-  constructor() { }
+  tools: any[];
+
+  constructor(private dataservice: DataService) { }
 
   ngOnInit() {
+    this.getCommunityTools()
+  }
+
+  getCommunityTools(){
+    this.dataservice.getCommunityTools()
+      .subscribe(
+        results => {
+          if (results !== null) {
+            this.tools = results
+          } else {
+            alert ("no results found")
+          }
+        },
+        error => console.log(error)
+      )
+    console.log(this.tools)
   }
 
 }

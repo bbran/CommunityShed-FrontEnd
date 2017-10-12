@@ -3,18 +3,20 @@
 <table datatable class="row-border hover">
   <thead>
     <tr>
+      <th>Category</th>
       <th>Tool Name</th>
       <th>Description</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Screwdriver</td>
-      <td>Perfectly respectable philips head that's only slightly stripped</td>
+    <tr *ngFor="let tool of tools">
+      <td>{{tool?.category}}</td>
+      <td>{{tool?.toolName}}</td>
+      <td>{{tool?.toolDescription}}</td>
       <td>
-        <button>Tool Details</button>
-        <button routerLink='/requestform'>Request Tool</button>
+        <button data-id={{tool.id}}>Tool Details</button>
+        <button data-id={{tool.id}} routerLink='/requestform'>Request Tool</button>
       </td>
     </tr>
   </tbody>

@@ -25,11 +25,7 @@ const routes: Routes = [
   { path: 'groupdetails', component: GroupdetailsComponent },
   { path: 'groupdetailsmembers', component: GroupdetailsmembersComponent },
   { path: 'tooldetails', component: TooldetailsComponent }
-
 ];
-
-
-
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

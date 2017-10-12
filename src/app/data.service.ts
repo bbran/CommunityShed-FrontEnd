@@ -27,7 +27,17 @@ export class DataService {
       .catch (this.handleError)
   }
 
+  //login page 
 
+  logIn(userData: object): Observable<any> {
+    const objectToSend = JSON.stringify(userData);
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.put(this.baseURL + 'sessions/mine', objectToSend, { headers: headers })
+      .map(this.extractData)
+      .catch (this.handleError)
+  }
 
   //success method for all service calls
 

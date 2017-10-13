@@ -1,8 +1,10 @@
 <app-navigation></app-navigation>
 
-<p>
-  tooldetails works!
-
-  not sure how you want to display this yet
-
-</p>
+<div>
+  Category: <p>{{tool?.category}}</p>
+  Tool Name: <p>{{tool?.toolName}}</p>
+  Description: <p>{{tool?.toolDescription}}</p>
+  Age: <p>{{tool?.age}}</p>
+  Owner of Tool: <p>{{tool?.owner?.firstName}} {{tool?.owner?.lastName}}</p>
+  <button (click)="this.location.back()">Return to Previous Page</button>
+</div>

@@ -76,6 +76,15 @@ export class DataService {
       .catch (this.handleError)
   }
 
+  //get tool details
+  getToolDetails(id): Observable<any> {
+      let apiURL = `${this.baseURL}tools/${id}`
+      return this.http
+        .get(apiURL, this.commonHttpOptions)
+        .map(this.extractData)
+        .catch(this.handleError)
+  }
+
   //success method for all service calls
 
   private extractData(res: Response) {

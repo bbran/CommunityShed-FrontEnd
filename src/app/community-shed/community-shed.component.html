@@ -15,9 +15,11 @@
       <td>{{tool?.toolName}}</td>
       <td>{{tool?.toolDescription}}</td>
       <td>
-        <button data-id={{tool.id}}>Tool Details</button>
+        <button [routerLink]="['/tooldetails/', tool.id]">Tool Details</button>
         <button data-id={{tool.id}} routerLink='/requestform'>Request Tool</button>
       </td>
     </tr>
   </tbody>
 </table>
+
+<!--need to set logic to only show tools with a status of available (we don't want to show items on loan, items requested, or disabled) -->

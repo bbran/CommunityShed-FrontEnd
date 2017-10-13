@@ -1,26 +1,28 @@
 <app-navigation></app-navigation>
 
 <div class="requestform">
-  <form>
+  <form (ngSubmit)="requestTool(requestform)" #requestform="ngForm">
     <div class="header">
         <h3>Request a Tool</h3> 
         <p>Please enter the following information to complete your request. Once your request is submitted, a notification will be sent to the owner of the tool for them to review.</p>     
     </div>
     <div class="form-group">
-      <label for="enddate" class="col-sm-2 control-label">End Date</label>
+      <label for="loanEndDate" class="col-sm-2 control-label">End Date</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="enddate" name="enddate" required>
+        <input ngModel #model="ngModel" type="text" class="form-control" id="loanEndDate" name="loanEndDate" placeholder="2017-01-01" pattern="(\d{4})-(\d{2})-(\d{2})" required>
       </div>
     </div>
     <div class="form-group">
-      <label for="requestdetails" class="col-sm-2 control-label">Enter Request Details</label>
+      <label for="description" class="col-sm-2 control-label">Enter Request Details</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="requestdetails" name="requestdetails" required>
+        <input ngModel #model="ngModel" type="text" class="form-control" id="description" name="description"  placeholder="ex. need this to build my new fence" required>
       </div>
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <button type="submit" class="btn btn-primary">Send Request to Owner</button>
+        <!-- i made this an a instead of a button because it was still making the submit request when it had the button tag -->
+        <a (click)="this.location.back()" class="btn">Cancel Request</a>
       </div>
     </div>
   </form>

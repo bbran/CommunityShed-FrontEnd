@@ -91,9 +91,26 @@ export class DataService {
         return res.json() || [];
     }
 
-    // error method for all service calls
+    //request specific tool
+    requestTool(requestData: object, id): Observable<any> {
+        let objectToSend = JSON.stringify(requestData);
+        let apiURL= `${this.baseURL}requests/tool/${id}`
+        return this.http
+            .post(apiURL, objectToSend, this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
+    }
 
-    private handleError(error: Response | any) {
+  //success method for all service calls
+
+  private extractData(res: Response) {
+    let results = res.json();
+    return results || [];
+  }
+
+  // error method for all service calls
+
+   private handleError(error: Response | any) {
         let errMsg: string;
         if (typeof error._body === "string") {
             errMsg = error._body

@@ -76,9 +76,18 @@ export class DataService {
             .catch(this.handleError)
     }
 
-    //get tool details
+    //get group's tool details
     getToolDetails(id): Observable<any> {
-        let apiURL = `${this.baseURL}tools/${id}`
+        let apiURL = `${this.baseURL}groups/${id}/tools`
+        return this.http
+            .get(apiURL, this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
+    }
+
+    //get group details
+    getGroupDetails(id): Observable<any> {
+        let apiURL = `${this.baseURL}groups/${id}`
         return this.http
             .get(apiURL, this.commonHttpOptions)
             .map(this.extractData)

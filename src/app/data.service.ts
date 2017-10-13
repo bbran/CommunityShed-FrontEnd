@@ -54,6 +54,19 @@ export class DataService {
       .catch(this.handleError)
   }
 
+  //Sign up page to create a new group
+
+  createNewGroup(userData: object): Observable<any> {
+    const objectToSend = JSON.stringify(userData);
+
+    const options: RequestOptionsArgs = {}
+
+    return this.http
+      .post(this.baseURL + 'groups', objectToSend, this.commonHttpOptions)
+      .map(this.extractData)
+      .catch (this.handleError)
+  }
+
   //success method for all service calls
 
   private extractData(res: Response) {

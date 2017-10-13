@@ -22,13 +22,14 @@ export class CommunityShedComponent implements OnInit {
         results => {
           if (results !== null) {
             this.tools = results
+            console.log(this.tools)
           } else {
             alert ("no results found")
           }
         },
         error => console.log(error)
       )
-    console.log(this.tools)
+      
   }
 
 }

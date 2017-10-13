@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'myshed', component: MyshedComponent },
   { path: 'groupdetails', component: GroupdetailsComponent },
   { path: 'groupdetailsmembers', component: GroupdetailsmembersComponent },
-  { path: 'tooldetails', component: TooldetailsComponent }
+  { path: 'tooldetails/:id', component: TooldetailsComponent }
 ];
 
 @NgModule({

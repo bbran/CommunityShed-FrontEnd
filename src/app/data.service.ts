@@ -95,6 +95,14 @@ export class DataService {
             .catch(this.handleError)
     }
 
+    //request all my tools
+    getMyTools(): Observable<any> {
+        return this.http
+            .get(this.baseURL + 'tools/mine', this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
+    }
+
   //success method for all service calls
 
   private extractData(res: Response) {

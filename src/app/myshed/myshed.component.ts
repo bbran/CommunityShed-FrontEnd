@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-myshed',
@@ -7,9 +8,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyshedComponent implements OnInit {
 
-  constructor() { }
+  tools: object;
+  requestedTools = [];
+  loanedTools = [];
+  availableTools = [];
+
+
+  constructor(private dataservice: DataService) { }
 
   ngOnInit() {
+    this.getMyTools()
+  }
+
+  getMyTools(){
+    this.dataservice.getMyTools()
+    .subscribe(
+      results => {
+        if (results !== null) {
+          this.tools = results
+          console.log(this.tools)
+          this.filterTolls(this.tools)
+        } else {
+          alert ("no results found")
+        }
+      },
+      error => console.log(error)
+    )
+  }
+
+  filterTolls(tools) {
+    for(const tool of tools) {
+      switch(tool.status) {
+        case 'Requested':
+          for (const { status } of tool.requests) {
+            status === 'Pending' && this.requestedTools.push(tool)
+          }
+        case 'Available':
+          this.availableTools.push(tool)
+        case 'Loaned':
+          this.loanedTools.push(tool)
+      }
+    }
   }
 
 }

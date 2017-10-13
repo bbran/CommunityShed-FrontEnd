@@ -3,18 +3,22 @@
 <div class="alltables">
 <h1>Requested Items</h1>
 
-<table datatable class="table table-striped table-bordered" style="width:100%" id="dataTable">
+<table datatable class="table table-striped table-bordered" style="width:100%">
   <thead>
     <tr>
       <th>Tool Name</th>
-      <th>Description</th>
+      <th>Requested By</th>
+      <th>Requested End Data</th>      
+      <th>Notes from Borrower</th>      
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Screwdriver</td>
-      <td>Perfectly respectable philips head that's only slightly stripped</td>
+    <tr *ngFor="let tool of tools">
+      <td>{{tool?.toolName}}</td>
+      <td>{{tool?.requests[0]?.borrower?.firstName}} {{tool?.requests[0]?.borrower?.lastName}}</td>
+      <td>{{tool?.requests[0]?.loanEndDate}}</td>
+      <td>{{tool?.requests[0]?.description}}</td>
       <td>
         <button>Approve</button>
         <button>Deny</button>
@@ -25,7 +29,7 @@
 
 <h1>Items on Loan</h1>
 
-<table datatable class="table table-striped table-bordered" style="width:100" id="dataTable">
+<table datatable class="table table-striped table-bordered" style="width:100">
   <thead>
     <tr>
       <th>Tool Name</th>
@@ -42,7 +46,7 @@
 
 <h1>Available Items</h1>
 
-<table datatable class="table table-striped table-bordered" style="width:100%" id="dataTable">
+<table datatable class="table table-striped table-bordered" style="width:100%">
   <thead>
     <tr>
       <th>Tool Name</th>

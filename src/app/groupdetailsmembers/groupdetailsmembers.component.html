@@ -1,4 +1,4 @@
-<p>
+<!-- <p>
   groupdetailsmembers works!
 </p>
 
@@ -7,7 +7,7 @@
   <li>list 2</li>
 </ul>
 
-<button>Button to add new member</button>
+<button>Button to add new member</button> -->
 <!-- 
 <ul>
   <li *ngFor="let favoriteThing of favoriteThings" (click)="clickedThing(favoriteThing)">{{favoriteThing.id}}  {{favoriteThing.name}}</li>
@@ -23,3 +23,14 @@
   <br>
   <input type="text" [(ngModel)]="selectedThing.name">
 </div> -->
+
+
+<app-navigation></app-navigation>
+<div class="groupMembers">
+<h3>Group Members</h3>
+<ul>
+  <li *ngFor="let member of group"><h4>{{member?.firstName}} {{member?.lastName}}</h4></li>
+</ul>
+<!-- <button type="button" routerLink="/newgroupform" type="submit" class="btn btn-primary">Add a New Group Member</button> -->
+
+</div>

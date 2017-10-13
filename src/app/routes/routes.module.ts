@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'requestform', component: RequestFormComponent },
   { path: 'myshed', component: MyshedComponent },
   { path: 'groupdetails', component: GroupdetailsComponent },
-  { path: 'groupdetailsmembers', component: GroupdetailsmembersComponent },
+  { path: 'groupdetailsmembers/:id', component: GroupdetailsmembersComponent },
   { path: 'tooldetails/:id', component: TooldetailsComponent },
   { path: 'newgroupform', component: NewGroupFormComponent }
 ];

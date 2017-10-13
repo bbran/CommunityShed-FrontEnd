@@ -16,7 +16,7 @@
       <td>{{tool?.toolDescription}}</td>
       <td>
         <button [routerLink]="['/tooldetails/', tool.id]">Tool Details</button>
-        <button data-id={{tool.id}} routerLink='/requestform'>Request Tool</button>
+        <button [routerLink]="['/requestform/', tool.id]">Request Tool</button>
       </td>
     </tr>
   </tbody>

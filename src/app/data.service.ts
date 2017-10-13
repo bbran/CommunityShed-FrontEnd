@@ -76,14 +76,15 @@ export class DataService {
             .catch(this.handleError)
     }
 
-    //get tool details
+    //get group's tool details
     getToolDetails(id): Observable<any> {
-        let apiURL = `${this.baseURL}tools/${id}`
+        let apiURL = `${this.baseURL}groups/${id}/tools`
         return this.http
             .get(apiURL, this.commonHttpOptions)
             .map(this.extractData)
             .catch(this.handleError)
     }
+
 
     //get to display the members of the group; group detail members component
     getGroupMembers(id): Observable<any> {
@@ -94,15 +95,37 @@ export class DataService {
             .catch(this.handleError)
     }
 
-    //success method for all service calls
+    //get group details
+    getGroupDetails(id): Observable<any> {
+        let apiURL = `${this.baseURL}groups/${id}`
 
-    private extractData(res: Response) {
-        return res.json() || [];
+        return this.http
+            .get(apiURL, this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
     }
 
-    // error method for all service calls
 
-    private handleError(error: Response | any) {
+    //request specific tool
+    requestTool(requestData: object, id): Observable<any> {
+        let objectToSend = JSON.stringify(requestData);
+        let apiURL= `${this.baseURL}requests/tool/${id}`
+        return this.http
+            .post(apiURL, objectToSend, this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
+    }
+
+  //success method for all service calls
+
+  private extractData(res: Response) {
+    let results = res.json();
+    return results || [];
+  }
+
+  // error method for all service calls
+
+   private handleError(error: Response | any) {
         let errMsg: string;
         if (typeof error._body === "string") {
             errMsg = error._body

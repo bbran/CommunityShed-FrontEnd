@@ -21,10 +21,10 @@ const routes: Routes = [
   { path: 'login',  component: LogInComponent },
   { path: 'mygroups',  component: MygroupsComponent },
   { path: 'communityshed', component: CommunityShedComponent },
-  { path: 'requestform', component: RequestFormComponent },
+  { path: 'requestform/:id', component: RequestFormComponent },
   { path: 'myshed', component: MyshedComponent },
-  { path: 'groupdetails', component: GroupdetailsComponent },
   { path: 'groupdetailsmembers/:id', component: GroupdetailsmembersComponent },
+  { path: 'groupdetails/:id', component: GroupdetailsComponent },
   { path: 'tooldetails/:id', component: TooldetailsComponent },
   { path: 'newgroupform', component: NewGroupFormComponent }
 ];

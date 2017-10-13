@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DataService } from '../data.service';
 import { Location } from '@angular/common';
@@ -14,8 +14,6 @@ import 'rxjs/add/operator/switchMap';
 export class TooldetailsComponent implements OnInit {
 
   tool: object;
-
-  @Input() toolID;
 
   constructor(private dataservice: DataService, private location: Location, private route: ActivatedRoute) { }
 

@@ -85,14 +85,26 @@ export class DataService {
             .catch(this.handleError)
     }
 
-    //get group details
-    getGroupDetails(id): Observable<any> {
-        let apiURL = `${this.baseURL}groups/${id}`
+
+    //get to display the members of the group; group detail members component
+    getGroupMembers(id): Observable<any> {
+        let apiURL = `${this.baseURL}groups/${id}/users`
         return this.http
             .get(apiURL, this.commonHttpOptions)
             .map(this.extractData)
             .catch(this.handleError)
     }
+
+    //get group details
+    getGroupDetails(id): Observable<any> {
+        let apiURL = `${this.baseURL}groups/${id}`
+
+        return this.http
+            .get(apiURL, this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
+    }
+
 
     //request specific tool
     requestTool(requestData: object, id): Observable<any> {

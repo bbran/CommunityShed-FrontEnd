@@ -16,6 +16,7 @@ export class DataService {
 
   private commonHttpOptions: RequestOptionsArgs;
 
+  //this is necessary for the user authentication to work 'withCredentials'
   constructor(private http: Http) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -46,12 +47,33 @@ export class DataService {
       .catch (this.handleError)
   }
 
-  //get all community tools
-  getCommunityTools(): Observable<any> {
+    //get all community tools
+    getCommunityTools(): Observable<any> {
+        return this.http
+        .get(this.baseURL + 'tools', this.commonHttpOptions)
+        .map(this.extractData)
+        .catch(this.handleError)
+    }
+
+    //get to display the groups to which you are a member; myGroups page
+    getMyGroups(): Observable<any> {
+        return this.http
+        .get(this.baseURL + 'groups', this.commonHttpOptions)
+        .map(this.extractData)
+        .catch(this.handleError)
+    }
+
+  //Sign up page to create a new group
+
+  createNewGroup(userData: object): Observable<any> {
+    const objectToSend = JSON.stringify(userData);
+
+    const options: RequestOptionsArgs = {}
+
     return this.http
-      .get(this.baseURL + 'tools', this.commonHttpOptions)
+      .post(this.baseURL + 'groups', objectToSend, this.commonHttpOptions)
       .map(this.extractData)
-      .catch(this.handleError)
+      .catch (this.handleError)
   }
 
   //get tool details

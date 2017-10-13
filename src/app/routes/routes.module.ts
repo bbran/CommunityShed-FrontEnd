@@ -12,6 +12,7 @@ import { RequestFormComponent } from '../request-form/request-form.component';
 import { GroupdetailsComponent } from '../groupdetails/groupdetails.component';
 import { GroupdetailsmembersComponent } from '../groupdetailsmembers/groupdetailsmembers.component';
 import { TooldetailsComponent } from '../tooldetails/tooldetails.component';
+import { NewGroupFormComponent } from '../new-group-form/new-group-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'myshed', component: MyshedComponent },
   { path: 'groupdetails', component: GroupdetailsComponent },
   { path: 'groupdetailsmembers', component: GroupdetailsmembersComponent },
-  { path: 'tooldetails/:id', component: TooldetailsComponent }
+  { path: 'tooldetails/:id', component: TooldetailsComponent },
+  { path: 'newgroupform', component: NewGroupFormComponent }
 ];
 
 @NgModule({

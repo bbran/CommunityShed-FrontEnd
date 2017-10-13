@@ -85,12 +85,6 @@ export class DataService {
             .catch(this.handleError)
     }
 
-    //success method for all service calls
-
-    private extractData(res: Response) {
-        return res.json() || [];
-    }
-
     //request specific tool
     requestTool(requestData: object, id): Observable<any> {
         let objectToSend = JSON.stringify(requestData);

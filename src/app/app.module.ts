@@ -30,6 +30,7 @@ import { GroupdetailsComponent } from './groupdetails/groupdetails.component';
 import { GroupdetailsmembersComponent } from './groupdetailsmembers/groupdetailsmembers.component';
 import { TooldetailsComponent } from './tooldetails/tooldetails.component';
 import { DataService } from './data.service';
+import { InvitegroupmemberComponent } from './invitegroupmember/invitegroupmember.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { DataService } from './data.service';
     MyshedComponent,
     GroupdetailsComponent,
     GroupdetailsmembersComponent,
-    TooldetailsComponent
+    TooldetailsComponent,
+    InvitegroupmemberComponent
   ],
 
   imports: [

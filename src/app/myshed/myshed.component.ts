@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Subject } from 'rxjs/Rx';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-myshed',
@@ -8,15 +11,24 @@ import { DataService } from '../data.service';
 })
 export class MyshedComponent implements OnInit {
 
+  dtOptions: DataTables.Settings = {};
+  
+  dtTrigger = new Subject();
+
   tools: object;
   requestedTools = [];
   loanedTools = [];
   availableTools = [];
+  approvalStatus;
 
 
-  constructor(private dataservice: DataService) { }
+  constructor(private dataservice: DataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.dtOptions = {
+      pagingType: "full_numbers"
+    }
+
     this.getMyTools()
   }
 
@@ -31,6 +43,7 @@ export class MyshedComponent implements OnInit {
         } else {
           alert ("no results found")
         }
+        this.dtTrigger.next();                  
       },
       error => console.log(error)
     )
@@ -43,12 +56,46 @@ export class MyshedComponent implements OnInit {
           for (const { status } of tool.requests) {
             status === 'Pending' && this.requestedTools.push(tool)
           }
-        case 'Available':
+        case 'On Loan':
+          this.loanedTools.push(tool)         
+        case 'Available' || 'Disabled':
           this.availableTools.push(tool)
-        case 'Loaned':
-          this.loanedTools.push(tool)
       }
     }
+  }
+
+  approveRequest(id){
+    this.dataservice.approveRequest(id)
+    .subscribe(
+      results => {
+        if (results !== null) {
+          this.approvalStatus = results
+          console.log(this.approvalStatus)
+          this.getMyTools()          
+        } else {
+          alert ("no results found")
+        }
+        this.dtTrigger.next();          
+      },
+      error => console.log(error)
+    )
+  }
+
+  denyRequest(id){
+    this.dataservice.denyRequest(id)
+    .subscribe(
+      results => {
+        if (results !== null) {
+          this.approvalStatus = results
+          console.log(this.approvalStatus)
+          this.getMyTools()          
+        } else {
+          alert ("no results found")
+        }
+        this.dtTrigger.next();          
+      },
+      error => console.log(error)
+    )
   }
 
 }

@@ -27,7 +27,8 @@ const routes: Routes = [
   { path: 'groupdetails/:id', component: GroupdetailsComponent },
   { path: 'tooldetails/:id', component: TooldetailsComponent },
   { path: 'newgroupform', component: NewGroupFormComponent },
-  { path: 'invitegroupmember', component: InvitegroupmemberComponent }
+  { path: 'invitegroupmember', component: InvitegroupmemberComponent },
+  { path: 'invitegroupmember/:id', component: InvitegroupmemberComponent }
 ];
 
 @NgModule({

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Subject } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-community-shed',
@@ -8,11 +9,19 @@ import { DataService } from '../data.service';
 })
 export class CommunityShedComponent implements OnInit {
 
+  dtOptions: DataTables.Settings = {};
+  
+  dtTrigger = new Subject();
+
   tools: any[];
 
   constructor(private dataservice: DataService) { }
 
   ngOnInit() {
+    this.dtOptions = {
+      pagingType: "full_numbers"
+    }
+
     this.getCommunityTools()
   }
 
@@ -25,6 +34,7 @@ export class CommunityShedComponent implements OnInit {
           } else {
             alert ("no results found")
           }
+          this.dtTrigger.next();          
         },
         error => console.log(error)
       )

@@ -24,7 +24,7 @@ export class GroupdetailsComponent implements OnInit {
   
     showGroupTools(){
       this.route.params
-      .switchMap((params: Params) => this.dataservice.getToolDetails(params['id']))
+      .switchMap((params: Params) => this.dataservice.getGroupTools(params['id']))
         .subscribe(
           results => {
             if (results !== null) {

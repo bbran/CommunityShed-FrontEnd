@@ -23,8 +23,8 @@ const routes: Routes = [
   { path: 'communityshed', component: CommunityShedComponent },
   { path: 'requestform/:id', component: RequestFormComponent },
   { path: 'myshed', component: MyshedComponent },
-  { path: 'groupdetails', component: GroupdetailsComponent },
-  { path: 'groupdetailsmembers', component: GroupdetailsmembersComponent },
+  { path: 'groupdetailsmembers/:id', component: GroupdetailsmembersComponent },
+  { path: 'groupdetails/:id', component: GroupdetailsComponent },
   { path: 'tooldetails/:id', component: TooldetailsComponent },
   { path: 'newgroupform', component: NewGroupFormComponent }
 ];

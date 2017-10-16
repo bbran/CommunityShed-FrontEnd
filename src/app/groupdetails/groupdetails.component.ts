@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DataService } from '../data.service';
 import { Location } from '@angular/common';
+import { Subject } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -12,6 +13,10 @@ import 'rxjs/add/operator/switchMap';
 })
 export class GroupdetailsComponent implements OnInit {
 
+  dtOptions: DataTables.Settings = {};
+  
+  dtTrigger = new Subject();
+
   group: object;
   
     @Input() groupID;
@@ -19,6 +24,11 @@ export class GroupdetailsComponent implements OnInit {
     constructor(private dataservice: DataService, private location: Location, private route: ActivatedRoute) { }
   
     ngOnInit() {
+
+      this.dtOptions = {
+        pagingType: "full_numbers"
+      }
+
       this.showGroupTools()
     }
   
@@ -33,6 +43,7 @@ export class GroupdetailsComponent implements OnInit {
             } else {
               alert ("no results found")
             }
+            this.dtTrigger.next();
           },
           error => console.log(error)
         )

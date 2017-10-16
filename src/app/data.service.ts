@@ -126,6 +126,49 @@ export class DataService {
     }
 
 
+    //request all my tools
+    getMyTools(): Observable<any> {
+        return this.http
+            .get(this.baseURL + 'tools/mine', this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
+    }
+
+
+    //approve request
+    approveRequest(id): Observable<any> {
+        let apiURL = `${this.baseURL}requests/${id}/approve`
+        return this.http
+            .put(apiURL, this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
+    }
+
+    //deny request
+    denyRequest(id): Observable<any> {
+        let apiURL = `${this.baseURL}requests/${id}/deny`
+        return this.http
+            .put(apiURL, this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
+    }
+
+    //disable tool
+    disableTool(id): Observable<any> {
+        let apiURL = `${this.baseURL}tools/${id}/disable`
+        return this.http
+            .put(apiURL, this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
+    }
+    
+    //enable tool
+    enableTool(id): Observable<any> {
+        let apiURL = `${this.baseURL}tools/${id}/enable`
+        return this.http
+            .put(apiURL, this.commonHttpOptions)
+
+
     ///////// Invite a member to your group
     inviteNewGroupMember(userData: object, id): Observable<any> {
 

@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-request-form',

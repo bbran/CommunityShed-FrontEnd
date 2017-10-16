@@ -12,6 +12,7 @@ import 'rxjs/add/operator/switchMap';
 })
 export class GroupdetailsmembersComponent implements OnInit {
 
+  groupId: number;
   members: any[];
 
   constructor(private dataservice: DataService, private location: Location, private route: ActivatedRoute) { }
@@ -23,7 +24,10 @@ export class GroupdetailsmembersComponent implements OnInit {
   displayMembers(){
 
     this.route.params
-    .switchMap((params: Params) => this.dataservice.getGroupMembers(params['id']))
+    .switchMap((params: Params) => {
+      this.groupId = params['id'];
+      return this.dataservice.getGroupMembers(params['id']);
+      })
       .subscribe(
         results => {
           if (results !== null) {

@@ -125,6 +125,20 @@ export class DataService {
             .catch(this.handleError)
     }
 
+
+    ///////// Invite a member to your group
+    inviteNewGroupMember(userData: object, id): Observable<any> {
+
+        const objectToSend = JSON.stringify(userData);
+        const options: RequestOptionsArgs = {}
+        let apiURL = `${this.baseURL}invites/group/${id}`
+
+        return this.http
+            .post(apiURL, objectToSend, this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
+    }
+
   //success method for all service calls
 
   private extractData(res: Response) {

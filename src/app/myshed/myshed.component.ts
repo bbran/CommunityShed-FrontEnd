@@ -72,6 +72,9 @@ export class MyshedComponent implements OnInit {
         case 'Available' || 'Disabled':
           this.availableTools.push(tool)
           break;
+        case 'Disabled':
+          this.availableTools.push(tool)
+          break;
       }
     }
   }
@@ -110,12 +113,23 @@ export class MyshedComponent implements OnInit {
 
   changeToolStatus(status, id){
     if(status === 'Available'){
+      console.log("status === avaiable")
       this.dataservice.disableTool(id)
+      .subscribe(results => {
+        if(results){
+          this.getMyTools()
+        }
+      })
     }
     if(status === 'Disabled'){
+      console.log("status === disabled")
       this.dataservice.enableTool(id)
+      .subscribe(results => {
+        if(results){
+          this.getMyTools()
+        }
+      })
     }
-    this.getMyTools()
   }
 
   private redrawTables() {
@@ -129,6 +143,6 @@ export class MyshedComponent implements OnInit {
       })
       .then(() => this.dtTrigger.next())
       .catch(error => console.error(error));
-}
+  }
 
 }

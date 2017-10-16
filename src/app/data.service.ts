@@ -125,6 +125,7 @@ export class DataService {
             .catch(this.handleError)
     }
 
+
     //request all my tools
     getMyTools(): Observable<any> {
         return this.http
@@ -166,6 +167,17 @@ export class DataService {
         let apiURL = `${this.baseURL}tools/${id}/enable`
         return this.http
             .put(apiURL, this.commonHttpOptions)
+
+
+    ///////// Invite a member to your group
+    inviteNewGroupMember(userData: object, id): Observable<any> {
+
+        const objectToSend = JSON.stringify(userData);
+        const options: RequestOptionsArgs = {}
+        let apiURL = `${this.baseURL}invites/group/${id}`
+
+        return this.http
+            .post(apiURL, objectToSend, this.commonHttpOptions)
             .map(this.extractData)
             .catch(this.handleError)
     }

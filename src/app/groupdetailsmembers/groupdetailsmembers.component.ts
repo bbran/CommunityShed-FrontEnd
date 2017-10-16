@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DataService } from '../data.service';
 import { Location } from '@angular/common';
@@ -12,9 +12,8 @@ import 'rxjs/add/operator/switchMap';
 })
 export class GroupdetailsmembersComponent implements OnInit {
 
+  groupId: number;
   members: any[];
-
-  @Input() memberID;
 
   constructor(private dataservice: DataService, private location: Location, private route: ActivatedRoute) { }
 
@@ -25,7 +24,10 @@ export class GroupdetailsmembersComponent implements OnInit {
   displayMembers(){
 
     this.route.params
-    .switchMap((params: Params) => this.dataservice.getGroupMembers(params['id']))
+    .switchMap((params: Params) => {
+      this.groupId = params['id'];
+      return this.dataservice.getGroupMembers(params['id']);
+      })
       .subscribe(
         results => {
           if (results !== null) {

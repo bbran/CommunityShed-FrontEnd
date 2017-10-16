@@ -150,7 +150,25 @@ export class DataService {
             .put(apiURL, this.commonHttpOptions)
             .map(this.extractData)
             .catch(this.handleError)
-        }
+    }
+
+    //disable tool
+    disableTool(id): Observable<any> {
+        let apiURL = `${this.baseURL}tools/${id}/disable`
+        return this.http
+            .put(apiURL, this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
+    }
+    
+    //enable tool
+    enableTool(id): Observable<any> {
+        let apiURL = `${this.baseURL}tools/${id}/enable`
+        return this.http
+            .put(apiURL, this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
+    }
 
   //success method for all service calls
 

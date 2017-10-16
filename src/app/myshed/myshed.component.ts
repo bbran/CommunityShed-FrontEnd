@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Subject } from 'rxjs/Rx';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { DataTableDirective } from 'angular-datatables';
 
 
 @Component({
@@ -10,6 +11,8 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./myshed.component.css']
 })
 export class MyshedComponent implements OnInit {
+  @ViewChildren(DataTableDirective)
+  awesomeTables: QueryList<DataTableDirective>;
 
   dtOptions: DataTables.Settings = {};
   
@@ -43,23 +46,32 @@ export class MyshedComponent implements OnInit {
         } else {
           alert ("no results found")
         }
-        this.dtTrigger.next();                  
+        this.redrawTables();
       },
       error => console.log(error)
     )
   }
 
   filterTools(tools) {
+    this.requestedTools = [];
+    this.loanedTools = [];
+    this.availableTools = [];
     for(const tool of tools) {
       switch(tool.status) {
         case 'Requested':
           for (const { status } of tool.requests) {
-            status === 'Pending' && this.requestedTools.push(tool)
+            if(status === 'Pending'){
+              this.requestedTools.push(tool)
+            }
           }
+          break;
         case 'On Loan':
-          this.loanedTools.push(tool)         
+          this.loanedTools.push(tool)
+          console.log(this.loanedTools);
+          break;
         case 'Available' || 'Disabled':
           this.availableTools.push(tool)
+          break;
       }
     }
   }
@@ -75,7 +87,6 @@ export class MyshedComponent implements OnInit {
         } else {
           alert ("no results found")
         }
-        this.dtTrigger.next();          
       },
       error => console.log(error)
     )
@@ -92,10 +103,32 @@ export class MyshedComponent implements OnInit {
         } else {
           alert ("no results found")
         }
-        this.dtTrigger.next();          
       },
       error => console.log(error)
     )
   }
+
+  changeToolStatus(status, id){
+    if(status === 'Available'){
+      this.dataservice.disableTool(id)
+    }
+    if(status === 'Disabled'){
+      this.dataservice.enableTool(id)
+    }
+    this.getMyTools()
+  }
+
+  private redrawTables() {
+    const arrayOfPromises = [];
+    for (const table of this.awesomeTables.toArray()) {
+      arrayOfPromises.push(table.dtInstance);
+    }
+    Promise.all(arrayOfPromises)
+      .then((arrayOfInstancePromises: DataTables.Api[]) => {
+        return arrayOfInstancePromises.map(dataTable => dataTable && dataTable.destroy());
+      })
+      .then(() => this.dtTrigger.next())
+      .catch(error => console.error(error));
+}
 
 }

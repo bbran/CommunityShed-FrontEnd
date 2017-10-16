@@ -8,17 +8,17 @@
     <tr>
       <th>Tool Name</th>
       <th>Requested By</th>
-      <th>Requested End Data</th>      
+      <th>Requested End Date</th>      
       <th>Notes from Borrower</th>      
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let tool of tools">
-      <td>{{tool?.toolName}}</td>
-      <td>{{tool?.requests[0]?.borrower?.firstName}} {{tool?.requests[0]?.borrower?.lastName}}</td>
-      <td>{{tool?.requests[0]?.loanEndDate}}</td>
-      <td>{{tool?.requests[0]?.description}}</td>
+    <tr *ngFor="let requestedTool of requestedTools">
+      <td>{{requestedTool?.toolName}}</td>
+      <td>{{requestedTool?.requests[0]?.borrower?.firstName}} {{requestedTool?.requests[0]?.borrower?.lastName}}</td>
+      <td>{{requestedTool?.requests[0]?.loanEndDate}}</td>
+      <td>{{requestedTool?.requests[0]?.description}}</td>
       <td>
         <button>Approve</button>
         <button>Deny</button>

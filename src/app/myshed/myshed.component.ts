@@ -27,7 +27,7 @@ export class MyshedComponent implements OnInit {
         if (results !== null) {
           this.tools = results
           console.log(this.tools)
-          this.filterTolls(this.tools)
+          this.filterTools(this.tools)
         } else {
           alert ("no results found")
         }
@@ -36,7 +36,7 @@ export class MyshedComponent implements OnInit {
     )
   }
 
-  filterTolls(tools) {
+  filterTools(tools) {
     for(const tool of tools) {
       switch(tool.status) {
         case 'Requested':

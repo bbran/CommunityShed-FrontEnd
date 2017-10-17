@@ -169,6 +169,17 @@ export class DataService {
             .put(apiURL, this.commonHttpOptions)
     }
 
+    /////////// myShed: add a tool
+    createNewTool(toolData: object): Observable<any> {
+        const objectToSend = JSON.stringify(toolData);
+        const options: RequestOptionsArgs = {}
+    
+        return this.http
+            .post(this.baseURL + 'tools', objectToSend, this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
+    }
+
     // Invite a member to your group
     inviteNewGroupMember(userData: object, id): Observable<any> {
 

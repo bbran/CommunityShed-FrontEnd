@@ -13,6 +13,7 @@ import { GroupdetailsComponent } from '../groupdetails/groupdetails.component';
 import { TooldetailsComponent } from '../tooldetails/tooldetails.component';
 import { NewGroupFormComponent } from '../new-group-form/new-group-form.component';
 import { InvitegroupmemberComponent } from '../invitegroupmember/invitegroupmember.component';
+import { ToolFormComponent } from '../tool-form/tool-form.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: 'tooldetails/:id', component: TooldetailsComponent },
   { path: 'newgroupform', component: NewGroupFormComponent },
   { path: 'invitegroupmember', component: InvitegroupmemberComponent },
-  { path: 'invitegroupmember/:id', component: InvitegroupmemberComponent }
+  { path: 'invitegroupmember/:id', component: InvitegroupmemberComponent },
+  { path: 'toolform', component: ToolFormComponent }
 ];
 
 @NgModule({

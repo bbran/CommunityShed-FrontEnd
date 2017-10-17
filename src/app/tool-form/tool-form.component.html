@@ -1,36 +1,48 @@
-
+<app-navigation></app-navigation>
 <div class="toolform">
-  <form (ngSubmit)="submitNewUser(toolData)" #toolData="ngForm">
+  <form (ngSubmit)=" name (name)" #name="ngForm">
     <div class="header">
-        <h3>Sign Up for the Community Shed:</h3>      
+        <h3>Edit Tool</h3>      
     </div>
     <div class="form-group">
-      <label for="firstName" class="col-sm-2 control-label">First Name</label>
+      <label for="category" class="col-sm-2 control-label">Category</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" ngModel #model="ngModel" id="firstName" name="firstName" required>
+        <input type="text" class="form-control" ngModel #model="ngModel" id="category" name="category" required>
       </div>
     </div>
     <div class="form-group">
-      <label for="lastName" class="col-sm-2 control-label">Last Name</label>
+      <label for="toolName" class="col-sm-2 control-label">Tool Name</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" ngModel #model="ngModel" id="lastName" name="lastName" required>
+        <input type="text" class="form-control" ngModel #model="ngModel" id="toolName" name="toolName" required>
       </div>
     </div>
     <div class="form-group">
-      <label for="email" class="col-sm-2 control-label">Email</label>
+      <label for="text" class="col-sm-2 control-label">Tool Manufacturer</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" ngModel #model="ngModel" id="email" name="email" required>
+        <input type="text" class="form-control" ngModel #model="ngModel" id="manufacturer" name="manufacturer" required>
       </div>
     </div>
     <div class="form-group">
-      <label for="password" class="col-sm-2 control-label">Password</label>
+      <label for="text" class="col-sm-2 control-label">Tool Description</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" ngModel #model="ngModel" id="password" name="password" required>
+        <input type="text" class="form-control" ngModel #model="ngModel" id="toolDescription" name="toolDesciption" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="text" class="col-sm-2 control-label">Age</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" ngModel #model="ngModel" id="toolAge" name="toolAge" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="text" class="col-sm-2 control-label">Owner</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" ngModel #model="ngModel" id="owner" name="owner" required>
       </div>
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">Complete Sign Up</button>
+        <button type="submit" class="btn btn-primary">not sure what the button does yet</button>
       </div>
     </div>
   </form>

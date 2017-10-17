@@ -169,7 +169,8 @@ export class DataService {
             .put(apiURL, this.commonHttpOptions)
     }
 
-    /////////// myShed: add a tool
+
+    // myShed: add a tool
     createNewTool(toolData: object): Observable<any> {
         const objectToSend = JSON.stringify(toolData);
         const options: RequestOptionsArgs = {}

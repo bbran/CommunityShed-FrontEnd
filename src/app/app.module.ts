@@ -31,6 +31,7 @@ import { GroupdetailsmembersComponent } from './groupdetailsmembers/groupdetails
 import { TooldetailsComponent } from './tooldetails/tooldetails.component';
 import { DataService } from './data.service';
 import { InvitegroupmemberComponent } from './invitegroupmember/invitegroupmember.component';
+import { ToolFormComponent } from './tool-form/tool-form.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { InvitegroupmemberComponent } from './invitegroupmember/invitegroupmembe
     GroupdetailsComponent,
     GroupdetailsmembersComponent,
     TooldetailsComponent,
-    InvitegroupmemberComponent
+    InvitegroupmemberComponent,
+    ToolFormComponent
   ],
 
   imports: [

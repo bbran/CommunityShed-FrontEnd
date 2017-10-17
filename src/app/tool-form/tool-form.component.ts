@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
 
+import 'rxjs/add/operator/switchMap';
+
 
 @Component({
   selector: 'app-tool-form',
@@ -13,19 +15,18 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 export class ToolFormComponent implements OnInit {
 
-//   toolData: NgForm;
-//   @ViewChild('toolForm')
-//   toolID: number;
-//   tool: object;
+  toolData: NgForm;
+  @ViewChild('toolForm')
+  toolID: number;
+  tool: object;
 
-//   getToolForEdit(){
-//     this.route.params //get route params
-//     //take something from param, make a call to service, then subscibe to result
-//       .switchMap((params: Params) => this.dataService.getToolDetails("tool", +params['id']))
-//       .subscribe(tool => this.tool = tool);
-//   }
+  // getToolForEdit(){
+  //   this.route.params
+  //     .switchMap((params: Params) => this.dataservice.getToolDetails("tool", +params['id']))
+  //     .subscribe(tool => this.tool = tool);
+  // }
 
-//   constructor( private dataservice: DataService, private router: Router, private route: ActivatedRoute ) { }
+  constructor( private dataservice: DataService, private router: Router, private route: ActivatedRoute ) { }
 
   ngOnInit() {
 //     this.displayToolsToEdit()

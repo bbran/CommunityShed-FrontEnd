@@ -30,7 +30,8 @@ const routes: Routes = [
   { path: 'newgroupform', component: NewGroupFormComponent },
   { path: 'invitegroupmember', component: InvitegroupmemberComponent },
   { path: 'invitegroupmember/:id', component: InvitegroupmemberComponent },
-  { path: 'toolform', component: ToolFormComponent }
+  { path: 'toolform', component: ToolFormComponent },
+  { path: 'toolform/:id', component: ToolFormComponent }
 ];
 
 @NgModule({

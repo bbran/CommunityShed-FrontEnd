@@ -203,6 +203,17 @@ export class DataService {
             .catch(this.handleError)
     }
 
+
+    //editTool
+    editTool(userData: object, id): Observable<any> {
+        const objectToSend = JSON.stringify(userData);
+        let apiURL = `${this.baseURL}tools/${id}`
+        return this.http
+            .put(apiURL, objectToSend, this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
+    }
+
   //success method for all service calls
 
   private extractData(res: Response) {

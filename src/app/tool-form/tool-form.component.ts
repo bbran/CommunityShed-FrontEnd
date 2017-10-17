@@ -2,9 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../data.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ActivatedRoute, Params } from '@angular/router';
-
-import 'rxjs/add/operator/switchMap';
 
 
 @Component({
@@ -15,41 +12,31 @@ import 'rxjs/add/operator/switchMap';
 
 export class ToolFormComponent implements OnInit {
 
-  toolData: NgForm;
   @ViewChild('toolForm')
-  toolID: number;
-  tool: object;
+  toolData: NgForm;
 
-  // getToolForEdit(){
-  //   this.route.params
-  //     .switchMap((params: Params) => this.dataservice.getToolDetails("tool", +params['id']))
-  //     .subscribe(tool => this.tool = tool);
-  // }
-
-  constructor( private dataservice: DataService, private router: Router, private route: ActivatedRoute ) { }
+  constructor( private dataservice: DataService, private router: Router ) { }
 
   ngOnInit() {
-//     this.displayToolsToEdit()
   }
 
-//   displayToolsToEdit(){
+  submitNewTool(){
+    console.log(this.toolData.value)
+  
+    this.dataservice.createNewTool(this.toolData.value) 
+      .subscribe (
+        result => {
+          if (result !== null) {
+            alert("tool created successfully.")
+            this.router.navigateByUrl('/myshed');
+          } else {
+            alert ("Tool create broken. Fix!")
+          }
+        },
+        error => console.log(error)
+      )
+  
+  }
 
-//     this.route.params
-//     .switchMap((params: Params) => {
-//       this.toolID = params['id'];
-//       return this.dataservice.editTool(params['id']);
-//       })
-//       .subscribe(
-//         results => {
-//           if (results !== null) {
-//             this.tool = results
-//           } else {
-//             alert ("no results found")
-//           }
-//         },
-//         error => console.log(error)
-//       )
-//     console.log(this.tool)
-//   }
 
 }

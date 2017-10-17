@@ -194,6 +194,15 @@ export class DataService {
             .catch(this.handleError)
     }
 
+
+    //logout user
+    logOut(): Observable<any> {
+        return this.http
+            .delete(this.baseURL + 'sessions/mine', this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
+    }
+
   //success method for all service calls
 
   private extractData(res: Response) {

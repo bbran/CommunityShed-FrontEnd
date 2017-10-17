@@ -167,7 +167,7 @@ export class DataService {
         let apiURL = `${this.baseURL}tools/${id}/enable`
         return this.http
             .put(apiURL, this.commonHttpOptions)
-
+    }
 
     ///////// Invite a member to your group
     inviteNewGroupMember(userData: object, id): Observable<any> {

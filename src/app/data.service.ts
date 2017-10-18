@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptionsArgs } from '@angular/http'
+import { Http, Response, Headers, RequestOptionsArgs, RequestOptions } from '@angular/http'
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
@@ -213,6 +213,25 @@ export class DataService {
             .map(this.extractData)
             .catch(this.handleError)
     }
+
+
+    //upload file
+    fileUpload(formData: FormData, id) {
+        let headers = new Headers();
+        headers.append('Content-Type', 'multipart/form-data');
+        headers.append('Accept', 'application/json');
+        let options = new RequestOptions({ headers: headers });
+        let apiURL = `${this.baseURL}tools/${id}/s3/upload`
+        return this.http
+            .post(apiURL, formData, options)
+            .map(res => res.json())
+            .catch(error => Observable.throw(error))
+            .subscribe(
+                data => console.log('success'),
+                error => console.log(error)
+            )
+    }
+
 
   //success method for all service calls
 

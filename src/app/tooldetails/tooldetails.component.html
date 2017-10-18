@@ -9,6 +9,7 @@
   Owner of Tool: <p>{{tool?.owner?.firstName}} {{tool?.owner?.lastName}}</p>
   <!--need to add logic for this button so it only displays if its the current user is the owner of the tool -->
   <div>
-      <button type="submit" [routerLink]="['/toolform/', tool?.id]">Edit Tool</button>
+      <button [routerLink]="['/toolform/', tool?.id]">Edit Tool</button>
+      <button [routerLink]="['/addimage/', tool?.id]">Add Image to Tool</button>
   </div>
 </div>

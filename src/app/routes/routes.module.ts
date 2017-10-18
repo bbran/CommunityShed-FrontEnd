@@ -33,7 +33,8 @@ const routes: Routes = [
   { path: 'invitegroupmember/:id', component: InvitegroupmemberComponent },
   { path: 'toolform', component: ToolFormComponent },
   { path: 'toolform/:id', component: ToolFormComponent },
-  { path: 'invitenewuser', component: InvitenewuserComponent }
+  // { path: 'invitenewuser', component: InvitenewuserComponent },
+  { path: 'invite/:inviteKey', component: InvitenewuserComponent }
 
 ];
 

@@ -10,6 +10,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class MygroupsComponent implements OnInit {
 
   groups: any[];
+  pendinggroups;
   groupId;
   user;
     constructor(private dataservice: DataService, private route: ActivatedRoute) { }
@@ -21,17 +22,19 @@ export class MygroupsComponent implements OnInit {
   
     displayMyGroups(){
       this.dataservice.getMyGroups()
+
         .subscribe(
           results => {
             if (results !== null) {
               this.groups = results
+              console.log(this.groups)
             } else {
               alert ("no results found")
             }
           },
           error => console.log(error)
         )
-      console.log(this.groups)
+
     }
 
     displayPendingRequest(){
@@ -39,14 +42,15 @@ export class MygroupsComponent implements OnInit {
       .subscribe(
         results => {
           if (results !== null) {
-            this.groups = results
+            this.pendinggroups = results
+            console.log(this.pendinggroups)
           } else {
             alert ("no results found")
           }
         },
         error => console.log(error)
       )
-    console.log(this.groups)
+   
   }
 
     denyInvite(){

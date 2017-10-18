@@ -22,7 +22,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let group of groups">
+    <tr *ngFor="let group of pendinggroups">
       <td>{{group?.groupName}}</td>
       <td>
         <button [routerLink]="['/groupdetails/', group.id]">Join!</button>

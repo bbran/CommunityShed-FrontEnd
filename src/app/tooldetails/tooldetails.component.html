@@ -2,6 +2,9 @@
 
 <button (click)="this.location.back()">Return to Previous Page</button>
 <div>
+  <div>
+    <img src="{{tool?.image}}" height="150px" />
+  </div>
   Category: <p>{{tool?.category}}</p>
   Tool Name: <p>{{tool?.toolName}}</p>
   Description: <p>{{tool?.toolDescription}}</p>

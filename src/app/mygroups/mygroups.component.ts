@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-mygroups',
@@ -9,11 +10,13 @@ import { DataService } from '../data.service';
 export class MygroupsComponent implements OnInit {
 
   groups: any[];
-  
-    constructor(private dataservice: DataService) { }
+  groupId;
+  user;
+    constructor(private dataservice: DataService, private route: ActivatedRoute) { }
   
     ngOnInit() {
       this.displayMyGroups()
+      this.displayPendingRequest()
     }
   
     displayMyGroups(){
@@ -30,6 +33,58 @@ export class MygroupsComponent implements OnInit {
         )
       console.log(this.groups)
     }
-  
+
+    displayPendingRequest(){
+      this.dataservice.getUserInvites()
+      .subscribe(
+        results => {
+          if (results !== null) {
+            this.groups = results
+          } else {
+            alert ("no results found")
+          }
+        },
+        error => console.log(error)
+      )
+    console.log(this.groups)
   }
-  
+
+    denyInvite(){
+        this.route.params
+        .switchMap((params: Params) => {
+          this.groupId = params['id'];
+          return this.dataservice. denyUserInvite(params['id']);
+          })
+          .subscribe(
+            results => {
+              if (results !== null) {
+                this.user = results
+              } else {
+                alert ("no results found")
+              }
+            },
+            error => console.log(error)
+          )
+        console.log(this.user)
+      }
+
+    acceptInvite(){
+          this.route.params
+          .switchMap((params: Params) => {
+            this.groupId = params['id'];
+            return this.dataservice. acceptUserInvite(params['id']);
+            })
+            .subscribe(
+              results => {
+                if (results !== null) {
+                  this.user = results
+                } else {
+                  alert ("no results found")
+                }
+              },
+              error => console.log(error)
+            )
+          console.log(this.user)
+        }
+      
+  }

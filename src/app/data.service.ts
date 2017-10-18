@@ -214,6 +214,30 @@ export class DataService {
             .catch(this.handleError)
     }
 
+    /////////////////new user invite return details
+    getUserInvite(inviteKey): Observable<any> {
+        let apiURL = `${this.baseURL}invites/${inviteKey}`
+        return this.http
+            .get(apiURL, this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
+
+    }
+
+    /////////////////new user invite create account
+    convertInvitedUser(inviteKey, userData: object): Observable<any> {
+        const objectToSend = JSON.stringify(userData);
+        let apiURL = `${this.baseURL}invites/${inviteKey}`
+        return this.http
+            .post(apiURL, objectToSend, this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
+    }
+
+
+
+
+
   //success method for all service calls
 
   private extractData(res: Response) {

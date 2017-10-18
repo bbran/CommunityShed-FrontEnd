@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { DataService } from '../data.service';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-log-in',
@@ -7,9 +11,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogInComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('logInForm') userData: NgForm;
+
+  constructor(private dataservice: DataService, private router: Router) { }
 
   ngOnInit() {
   }
 
+  logInUser(){
+    console.log(this.userData.value)
+  
+    this.dataservice.logIn(this.userData.value) 
+      .subscribe (
+        result => {
+          if (result !== null) {
+            alert("User created successfully.")
+            this.router.navigateByUrl('/communityshed');
+          } else {
+            alert ("Email is already reagistered. Please register with unique email.")
+          }
+        },
+        error => console.log(error)
+      )
+  
+  }
 }

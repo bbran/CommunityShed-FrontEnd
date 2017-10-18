@@ -1,0 +1,25 @@
+<app-navigation></app-navigation>
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Tool Name</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tool of tools">
+      <td>{{tool?.category}}</td>
+      <td>{{tool?.toolName}}</td>
+      <td>{{tool?.toolDescription}}</td>
+      <td>
+        <button [routerLink]="['/tooldetails/', tool.id]">Tool Details</button>
+        <button [routerLink]="['/requestform/', tool.id]">Request Tool</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!--need to set logic to only show tools with a status of available (we don't want to show items on loan, items requested, or disabled) -->

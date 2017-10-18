@@ -1,0 +1,9 @@
+
+<div class="groupMembers">
+<h3>Group Members</h3>
+<ul>
+  <li *ngFor="let member of members"><h4>{{member?.firstName}} {{member?.lastName}}</h4></li>
+</ul>
+<button type="button" routerLink="/invitegroupmember/{{ this.groupId }}" type="submit" class="btn btn-primary">Invite Group Member</button>
+
+</div>

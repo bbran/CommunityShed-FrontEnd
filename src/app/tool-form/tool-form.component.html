@@ -1,0 +1,45 @@
+<app-navigation></app-navigation>
+<div class="toolform">
+  <form novalidate (ngSubmit)="saveTool(toolForm)" #toolForm="ngForm">
+    <div class="header">
+        <h3>Add Tool</h3>      
+    </div>
+    <input [ngModel]="tool?.id" ngModel #model="ngModel" type="hidden" name="id">    
+    <div class="form-group">
+      <label for="category" class="col-sm-2 control-label">Category</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" [ngModel]="tool?.category" ngModel #model="ngModel" id="category" name="category" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="toolName" class="col-sm-2 control-label">Tool Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" [ngModel]="tool?.toolName" ngModel #model="ngModel" id="toolName" name="toolName" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="text" class="col-sm-2 control-label">Tool Manufacturer</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" [ngModel]="tool?.manufacturer" ngModel #model="ngModel" id="manufacturer" name="manufacturer" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="text" class="col-sm-2 control-label">Tool Description</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" [ngModel]="tool?.toolDescription" ngModel #model="ngModel" id="toolDescription" name="toolDescription" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="text" class="col-sm-2 control-label">Age</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" [ngModel]="tool?.toolAge" ngModel #model="ngModel" id="toolAge" name="toolAge" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a (click)="this.location.back()">Return to Previous Page</a>        
+      </div>
+    </div>
+  </form>
+</div>

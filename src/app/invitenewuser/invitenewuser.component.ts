@@ -56,7 +56,7 @@ export class InvitenewuserComponent implements OnInit {
         result => {
           if (result !== null) {
             alert("User created successfully.")
-            this.router.navigateByUrl('/mygroup');
+            this.router.navigateByUrl('/mygroups');
           } else {
             alert ("not working")
           }

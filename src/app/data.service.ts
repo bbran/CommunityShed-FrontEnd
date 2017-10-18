@@ -214,7 +214,7 @@ export class DataService {
             .catch(this.handleError)
     }
 
-    /////////////////new user invite return details
+    //new user invite return details
     getUserInvite(inviteKey): Observable<any> {
         let apiURL = `${this.baseURL}invites/${inviteKey}`
         return this.http
@@ -224,7 +224,7 @@ export class DataService {
 
     }
 
-    /////////////////new user invite create account
+    //new user invite create account
     convertInvitedUser(inviteKey, userData: object): Observable<any> {
         const objectToSend = JSON.stringify(userData);
         let apiURL = `${this.baseURL}invites/${inviteKey}`
@@ -234,9 +234,27 @@ export class DataService {
             .catch(this.handleError)
     }
 
+    /////////existing user pending invites
+    getUserInvites(): Observable<any> {
+        return this.http
+            .get(this.baseURL + 'groups/pendingInvites', this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
+    }
 
+    /////////existing user accpet invite
+    acceptUserInvite(id): Observable<any> {
+        let apiURL = `${this.baseURL}groups/${id}/user/accept`
+        return this.http
+            .put(apiURL, this.commonHttpOptions)
+    }
 
-
+    ///////// existing user reject
+    denyUserInvite(id): Observable<any> {
+        let apiURL = `${this.baseURL}groups/${id}/user/deny`
+        return this.http
+            .put(apiURL, this.commonHttpOptions)
+    }
 
   //success method for all service calls
 

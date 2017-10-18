@@ -19,7 +19,7 @@
     <tr *ngFor="let requestedTool of requestedTools">
       <td>{{requestedTool?.toolName}}</td>
       <td>{{requestedTool?.requests[0]?.borrower?.firstName}} {{requestedTool?.requests[0]?.borrower?.lastName}}</td>
-      <td>{{requestedTool?.requests[0]?.loanEndDate}}</td>
+      <td>{{requestedTool?.requests[0]?.loanEndDate | date: 'y-MM-d '}}</td>
       <td>{{requestedTool?.requests[0]?.description}}</td>
       <td>
         <button type="submit" (click)="approveRequest(requestedTool.requests[0].id)">Approve</button>
@@ -45,7 +45,7 @@
   <tbody>
     <tr *ngFor="let loanedTool of loanedTools">
       <td>{{loanedTool?.requests[0].borrower?.firstName}} {{loanedTool?.requests[0].borrower?.lastName}}</td>   
-      <td>{{loanedTool?.requests[0]?.loanEndDate}}</td>   
+      <td>{{loanedTool?.requests[0]?.loanEndDate | date: 'y-MM-d '}}</td>   
       <td>{{loanedTool.toolName}}</td>
       <td>{{loanedTool.toolDescription}}</td>
       <td>{{loanedTool.status}}</td>      

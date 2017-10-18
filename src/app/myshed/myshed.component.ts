@@ -25,7 +25,10 @@ export class MyshedComponent implements OnInit {
   approvalStatus;
 
 
-  constructor(private dataservice: DataService, private route: ActivatedRoute) { }
+  constructor(
+    private dataservice: DataService, 
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.dtOptions = {
@@ -69,7 +72,7 @@ export class MyshedComponent implements OnInit {
           this.loanedTools.push(tool)
           console.log(this.loanedTools);
           break;
-        case 'Available' || 'Disabled':
+        case 'Available':
           this.availableTools.push(tool)
           break;
         case 'Disabled':
@@ -78,6 +81,7 @@ export class MyshedComponent implements OnInit {
       }
     }
   }
+
 
   approveRequest(id){
     this.dataservice.approveRequest(id)

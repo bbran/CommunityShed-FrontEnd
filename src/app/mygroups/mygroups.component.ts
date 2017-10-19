@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-mygroups',
@@ -13,7 +13,7 @@ export class MygroupsComponent implements OnInit {
   pendinggroups;
   groupId;
   user;
-    constructor(private dataservice: DataService, private route: ActivatedRoute) { }
+    constructor(private router: Router, private dataservice: DataService, private route: ActivatedRoute) { }
   
     ngOnInit() {
       this.displayMyGroups()
@@ -27,7 +27,6 @@ export class MygroupsComponent implements OnInit {
           results => {
             if (results !== null) {
               this.groups = results
-              console.log(this.groups)
             } else {
               alert ("no results found")
             }
@@ -43,7 +42,6 @@ export class MygroupsComponent implements OnInit {
         results => {
           if (results !== null) {
             this.pendinggroups = results
-            console.log(this.pendinggroups)
           } else {
             alert ("no results found")
           }
@@ -63,6 +61,7 @@ export class MygroupsComponent implements OnInit {
             results => {
               if (results !== null) {
                 this.user = results
+                this.router.navigateByUrl ('/mygroups')
               } else {
                 alert ("no results found")
               }
@@ -82,6 +81,7 @@ export class MygroupsComponent implements OnInit {
               results => {
                 if (results !== null) {
                   this.user = results
+                  this.router.navigateByUrl ('/groupdetails/'+ this.user.id)
                 } else {
                   alert ("no results found")
                 }

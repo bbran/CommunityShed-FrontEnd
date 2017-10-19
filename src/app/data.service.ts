@@ -11,6 +11,7 @@ export class DataService {
 
     //all api calls start with this base. concat additional text for endpoint.
 
+    // private baseURL: string = "http://localhost:8080/api/";
     private baseURL: string = "https://communityshed.herokuapp.com/api/";
     status;
 
@@ -36,7 +37,7 @@ export class DataService {
             .catch(this.handleError)
     }
 
-    //login page 
+    //login page
 
     logIn(userData: object): Observable<any> {
         const objectToSend = JSON.stringify(userData);
@@ -161,7 +162,7 @@ export class DataService {
             .map(this.extractData)
             .catch(this.handleError)
     }
-    
+
     //enable tool
     enableTool(id): Observable<any> {
         let apiURL = `${this.baseURL}tools/${id}/enable`
@@ -174,7 +175,7 @@ export class DataService {
     createNewTool(toolData: object): Observable<any> {
         const objectToSend = JSON.stringify(toolData);
         const options: RequestOptionsArgs = {}
-    
+
         return this.http
             .post(this.baseURL + 'tools', objectToSend, this.commonHttpOptions)
             .map(this.extractData)
@@ -218,7 +219,6 @@ export class DataService {
     //upload file
     fileUpload(formData: FormData, id) {
         let headers = new Headers();
-        headers.append('Content-Type', 'multipart/form-data');
         headers.append('Accept', 'application/json');
         let options = new RequestOptions({ headers: headers });
         let apiURL = `${this.baseURL}tools/${id}/s3/upload`

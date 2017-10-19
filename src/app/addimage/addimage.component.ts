@@ -32,11 +32,11 @@ export class AddimageComponent implements OnInit {
     if(fileList.length > 0) {
         let file: File = fileList[0];
         let formData:FormData = new FormData();
-        formData.append('uploadFile', file, file.name);
+        formData.append('file', file, file.name);
         this.dataservice.fileUpload(formData, this.tool.id)
     }
   }
 
   //apiEndPoint = POST "/api/tools/{toolId}/s3/upload"
-  
+
 }

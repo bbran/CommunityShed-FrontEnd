@@ -259,14 +259,18 @@ export class DataService {
     acceptUserInvite(id): Observable<any> {
         let apiURL = `${this.baseURL}groups/${id}/user/accept`
         return this.http
-            .put(apiURL, this.commonHttpOptions)
+            .put(apiURL, {}, this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
     }
 
     ///////// existing user reject
     denyUserInvite(id): Observable<any> {
         let apiURL = `${this.baseURL}groups/${id}/user/deny`
         return this.http
-            .put(apiURL, this.commonHttpOptions)
+            .put(apiURL, {}, this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
     }
 
   //success method for all service calls

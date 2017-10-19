@@ -47,7 +47,9 @@ export class MygroupsComponent implements OnInit {
       .subscribe(
         results => {
           if (results !== null) {
+
             this.pendinggroups = results
+            console.log(this.pendinggroups)
           } else {
             alert ("no results found")
           }
@@ -59,12 +61,13 @@ export class MygroupsComponent implements OnInit {
   }
 
     denyInvite(id){
-        this.dataservice. denyUserInvite(id)
+        this.dataservice.denyUserInvite(id)
           .subscribe(
             results => {
               if (results !== null) {
                 this.user = results
-                this.router.navigateByUrl ('/mygroups')
+                this.displayMyGroups()
+                this.displayPendingRequest()
               } else {
                 alert ("no results found")
               }
@@ -81,7 +84,8 @@ export class MygroupsComponent implements OnInit {
               results => {
                 if (results !== null) {
                   this.user = results
-                  this.router.navigateByUrl ('/groupdetails/'+ this.user.id)
+                  this.displayMyGroups()
+                  this.displayPendingRequest()
                 } else {
                   alert ("no results found")
                 }

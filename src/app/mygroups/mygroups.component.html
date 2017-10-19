@@ -27,7 +27,7 @@
       <td>
           <!-- [routerLink]="['/groupdetails/', group.id]" -->
         <button (click)="acceptInvite(group.id)" >Join!</button>
-        <button (click)="denyInvite()" routerLink= "/myshed">No Thanks. You guys ruin tools.</button>
+        <button (click)="denyInvite(group.id)">No Thanks. You guys ruin tools.</button>
       </td>
     </tr>
   </tbody>

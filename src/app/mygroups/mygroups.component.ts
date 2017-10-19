@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Subject } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-mygroups',
@@ -9,10 +10,15 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class MygroupsComponent implements OnInit {
 
+  dtOptions: DataTables.Settings = {};
+  
+  dtTrigger = new Subject();
+
   groups: any[];
   pendinggroups;
-  groupId;
   user;
+
+
     constructor(private router: Router, private dataservice: DataService, private route: ActivatedRoute) { }
   
     ngOnInit() {
@@ -41,50 +47,49 @@ export class MygroupsComponent implements OnInit {
       .subscribe(
         results => {
           if (results !== null) {
+
             this.pendinggroups = results
+            console.log(this.pendinggroups)
           } else {
             alert ("no results found")
           }
+          this.dtTrigger.next();
         },
         error => console.log(error)
       )
    
   }
 
-    denyInvite(){
-        this.route.params
-        .switchMap((params: Params) => {
-          this.groupId = params['id'];
-          return this.dataservice. denyUserInvite(params['id']);
-          })
+    denyInvite(id){
+        this.dataservice.denyUserInvite(id)
           .subscribe(
             results => {
               if (results !== null) {
                 this.user = results
-                this.router.navigateByUrl ('/mygroups')
+                this.displayMyGroups()
+                this.displayPendingRequest()
               } else {
                 alert ("no results found")
               }
+              this.dtTrigger.next();
             },
             error => console.log(error)
           )
         console.log(this.user)
       }
 
-    acceptInvite(){
-          this.route.params
-          .switchMap((params: Params) => {
-            this.groupId = params['id'];
-            return this.dataservice. acceptUserInvite(params['id']);
-            })
+    acceptInvite(id){
+        this.dataservice.acceptUserInvite(id)
             .subscribe(
               results => {
                 if (results !== null) {
                   this.user = results
-                  this.router.navigateByUrl ('/groupdetails/'+ this.user.id)
+                  this.displayMyGroups()
+                  this.displayPendingRequest()
                 } else {
                   alert ("no results found")
                 }
+                this.dtTrigger.next();    
               },
               error => console.log(error)
             )

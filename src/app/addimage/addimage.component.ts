@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { RequestOptions, RequestOptionsArgs } from '@angular/http';
 
@@ -14,7 +14,8 @@ export class AddimageComponent implements OnInit {
 
   constructor(
     private dataservice: DataService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -34,9 +35,17 @@ export class AddimageComponent implements OnInit {
         let formData:FormData = new FormData();
         formData.append('file', file, file.name);
         this.dataservice.fileUpload(formData, this.tool.id)
+          .subscribe(
+            data => {
+              if(data !== null){
+                alert('Image successfully added!'),
+                this.router.navigateByUrl('/tooldetails/' + this.tool.id)
+              }else{
+                alert('image was not updated')
+              }              
+            },
+            error => console.log(error)
+          )
     }
   }
-
-  //apiEndPoint = POST "/api/tools/{toolId}/s3/upload"
-
 }

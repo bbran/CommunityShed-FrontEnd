@@ -226,10 +226,6 @@ export class DataService {
             .post(apiURL, formData, options)
             .map(res => res.json())
             .catch(error => Observable.throw(error))
-            .subscribe(
-                data => console.log('success'),
-                error => console.log(error)
-            )
     }
 
 

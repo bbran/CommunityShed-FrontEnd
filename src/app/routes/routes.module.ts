@@ -15,6 +15,7 @@ import { NewGroupFormComponent } from '../new-group-form/new-group-form.componen
 import { InvitegroupmemberComponent } from '../invitegroupmember/invitegroupmember.component';
 import { ToolFormComponent } from '../tool-form/tool-form.component';
 import { AddimageComponent } from '../addimage/addimage.component';
+import { InvitenewuserComponent } from '../invitenewuser/invitenewuser.component';
 
 
 const routes: Routes = [
@@ -33,7 +34,9 @@ const routes: Routes = [
   { path: 'invitegroupmember/:id', component: InvitegroupmemberComponent },
   { path: 'toolform', component: ToolFormComponent },
   { path: 'toolform/:id', component: ToolFormComponent },
-  { path: 'addimage/:id', component: AddimageComponent}
+  { path: 'addimage/:id', component: AddimageComponent},
+  // { path: 'invitenewuser', component: InvitenewuserComponent },
+  { path: 'invite/:inviteKey', component: InvitenewuserComponent }
 ];
 
 @NgModule({

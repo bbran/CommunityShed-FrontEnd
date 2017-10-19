@@ -1,5 +1,5 @@
 .mygroups {
-    padding-top: 100px;
+    padding-top: 50px;
     font-family: 'Roboto', sans-serif;
     color: #7f7f7f;
     margin: auto;
@@ -23,4 +23,13 @@ li {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+.mygroupstable {
+    padding-top: 50px;
+    font-family: 'Roboto', sans-serif;
+    color: #7f7f7f;
+    margin: auto;
+    width: 50%;
+    text-align: center;
 }

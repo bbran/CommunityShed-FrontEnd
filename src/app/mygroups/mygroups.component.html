@@ -10,3 +10,26 @@
 <button type="button" routerLink="/newgroupform" type="submit" class="btn btn-primary">Add a New Group</button>
 
 </div>
+
+<div class="mygroupstable">
+<h3>Join Us!</h3>
+<p></p>
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+  <thead>
+    <tr>
+      <th>Group Name</th>
+      <th>Request to Join</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let group of pendinggroups">
+      <td>{{group?.groupName}}</td>
+      <td>
+          <!-- [routerLink]="['/groupdetails/', group.id]" -->
+        <button (click)="acceptInvite()" >Join!</button>
+        <button (click)="denyInvite()" routerLink= "/myshed">No Thanks. You guys ruin tools.</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>

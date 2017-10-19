@@ -25,7 +25,6 @@ export class LogInComponent implements OnInit {
       .subscribe (
         result => {
           if (result !== null) {
-            alert("User created successfully.")
             this.router.navigateByUrl('/communityshed');
           } else {
             alert ("Email is already reagistered. Please register with unique email.")

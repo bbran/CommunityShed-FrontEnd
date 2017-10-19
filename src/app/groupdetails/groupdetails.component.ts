@@ -18,6 +18,7 @@ export class GroupdetailsComponent implements OnInit {
   dtTrigger = new Subject();
 
   group: object;
+  availableTools;
   
     @Input() groupID;
   
@@ -40,6 +41,7 @@ export class GroupdetailsComponent implements OnInit {
             if (results !== null) {
               this.group = results
               console.log(this.group)
+              this.showAvailableTools(this.group)
             } else {
               alert ("no results found")
             }
@@ -50,4 +52,15 @@ export class GroupdetailsComponent implements OnInit {
       console.log(this.group)
     }
   
+    showAvailableTools(tools){
+      this.availableTools = []
+        for(const tool of tools) {
+          switch(tool.status) {
+            case 'Available':
+              this.availableTools.push(tool)
+              break;
+          }
+        }
+      
+    }
   }

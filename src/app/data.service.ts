@@ -136,20 +136,20 @@ export class DataService {
     }
 
 
-    //approve request
+    //approve request for a tool
     approveRequest(id): Observable<any> {
         let apiURL = `${this.baseURL}requests/${id}/approve`
         return this.http
-            .put(apiURL, this.commonHttpOptions)
+            .put(apiURL, {}, this.commonHttpOptions)
             .map(this.extractData)
             .catch(this.handleError)
     }
 
-    //deny request
+    //deny request for a tool
     denyRequest(id): Observable<any> {
         let apiURL = `${this.baseURL}requests/${id}/deny`
         return this.http
-            .put(apiURL, this.commonHttpOptions)
+            .put(apiURL, {}, this.commonHttpOptions)
             .map(this.extractData)
             .catch(this.handleError)
     }
@@ -158,7 +158,7 @@ export class DataService {
     disableTool(id): Observable<any> {
         let apiURL = `${this.baseURL}tools/${id}/disable`
         return this.http
-            .put(apiURL, this.commonHttpOptions)
+            .put(apiURL, {}, this.commonHttpOptions)
             .map(this.extractData)
             .catch(this.handleError)
     }
@@ -167,7 +167,9 @@ export class DataService {
     enableTool(id): Observable<any> {
         let apiURL = `${this.baseURL}tools/${id}/enable`
         return this.http
-            .put(apiURL, this.commonHttpOptions)
+            .put(apiURL, {}, this.commonHttpOptions)
+            .map(this.extractData)
+            .catch(this.handleError)
     }
 
 

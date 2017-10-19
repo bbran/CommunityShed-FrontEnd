@@ -124,6 +124,7 @@ export class MyshedComponent implements OnInit {
           this.getMyTools()
         }
       })
+      alert("Tool is now disabled. This tool will no longer display to anyone in your community.")
     }
     if(status === 'Disabled'){
       console.log("status === disabled")
@@ -133,6 +134,7 @@ export class MyshedComponent implements OnInit {
           this.getMyTools()
         }
       })
+      alert("Tool is now available. This tool will now be displayed to members of your community.")
     }
   }
 

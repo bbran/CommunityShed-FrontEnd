@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChild } from '@angular/core';
 import { DataService } from '../data.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs/Rx';
+
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-mygroups',
@@ -10,7 +12,7 @@ import { Subject } from 'rxjs/Rx';
 })
 export class MygroupsComponent implements OnInit {
 
-  dtOptions: DataTables.Settings = {};
+  // dtOptions: DataTables.Settings = {};
   
   dtTrigger = new Subject();
 
@@ -22,6 +24,7 @@ export class MygroupsComponent implements OnInit {
     constructor(private router: Router, private dataservice: DataService, private route: ActivatedRoute) { }
   
     ngOnInit() {
+
       this.displayMyGroups()
       this.displayPendingRequest()
     }
@@ -53,7 +56,8 @@ export class MygroupsComponent implements OnInit {
           } else {
             alert ("no results found")
           }
-          this.dtTrigger.next();
+          this.dtTrigger.next()
+          // this.drawTable();
         },
         error => console.log(error)
       )
@@ -71,7 +75,6 @@ export class MygroupsComponent implements OnInit {
               } else {
                 alert ("no results found")
               }
-              this.dtTrigger.next();
             },
             error => console.log(error)
           )
@@ -89,11 +92,9 @@ export class MygroupsComponent implements OnInit {
                 } else {
                   alert ("no results found")
                 }
-                this.dtTrigger.next();    
               },
               error => console.log(error)
             )
           console.log(this.user)
         }
-      
   }

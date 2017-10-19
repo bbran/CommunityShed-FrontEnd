@@ -1,7 +1,11 @@
 <app-navigation></app-navigation>
 
 <button (click)="this.location.back()">Return to Previous Page</button>
+
 <div>
+  <div>
+    <img src="{{tool?.image}}" height="150px" />
+  </div>
   Category: <p>{{tool?.category}}</p>
   Tool Name: <p>{{tool?.toolName}}</p>
   Description: <p>{{tool?.toolDescription}}</p>
@@ -9,6 +13,7 @@
   Owner of Tool: <p>{{tool?.owner?.firstName}} {{tool?.owner?.lastName}}</p>
   <!--need to add logic for this button so it only displays if its the current user is the owner of the tool -->
   <div>
-      <button type="submit" [routerLink]="['/toolform/', tool?.id]">Edit Tool</button>
+      <button [routerLink]="['/toolform/', tool?.id]">Edit Tool</button>
+      <button [routerLink]="['/addimage/', tool?.id]">Add Image to Tool</button>
   </div>
 </div>

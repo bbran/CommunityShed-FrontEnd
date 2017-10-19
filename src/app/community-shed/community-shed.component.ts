@@ -14,6 +14,7 @@ export class CommunityShedComponent implements OnInit {
   dtTrigger = new Subject();
 
   tools: any[];
+  availableTools;
 
   constructor(private dataservice: DataService) { }
 
@@ -32,6 +33,7 @@ export class CommunityShedComponent implements OnInit {
           if (results !== null) {
             this.tools = results
             console.log(this.tools)
+            this.showAvailableTools(this.tools)
           } else {
             alert ("no results found")
           }
@@ -40,6 +42,18 @@ export class CommunityShedComponent implements OnInit {
         error => console.log(error)
       )
       
+  }
+
+  showAvailableTools(tools){
+    this.availableTools = []
+      for(const tool of tools) {
+        switch(tool.status) {
+          case 'Available':
+            this.availableTools.push(tool)
+            break;
+        }
+      }
+    
   }
 
 }

@@ -26,7 +26,7 @@ import { Router } from '@angular/router';
           result => {
             if (result !== null) {
               alert("Group created successfully.")
-              this.router.navigateByUrl('/groupdetails');
+              // this.router.navigateByUrl('/groupdetails');
             } else {
               alert ("Group not made.")
             }

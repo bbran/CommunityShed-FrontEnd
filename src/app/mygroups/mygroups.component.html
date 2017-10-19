@@ -25,8 +25,9 @@
     <tr *ngFor="let group of pendinggroups">
       <td>{{group?.groupName}}</td>
       <td>
-        <button [routerLink]="['/groupdetails/', group.id]">Join!</button>
-        <!-- <button [routerLink]="['/requestform/', tool.id]">No Thanks. You guys ruin tools.</button> -->
+          <!-- [routerLink]="['/groupdetails/', group.id]" -->
+        <button (click)="acceptInvite()" >Join!</button>
+        <button (click)="denyInvite()" routerLink= "/myshed">No Thanks. You guys ruin tools.</button>
       </td>
     </tr>
   </tbody>

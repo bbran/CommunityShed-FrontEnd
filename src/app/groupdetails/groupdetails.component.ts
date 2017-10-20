@@ -66,12 +66,10 @@ export class GroupdetailsComponent implements OnInit {
     }
 
     getNameForDisplay(){
-      console.log("start get Name for display")
       this.route.params
       .switchMap((params: Params) => this.dataservice.getGroupDetails(params['id']))
       .subscribe(
         results => {
-          console.log('in results')
           if (results !== null) {
             this.groupdetails = results
             console.log(this.groupdetails)

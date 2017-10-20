@@ -1,0 +1,23 @@
+h2{
+    font-family: 'Roboto', sans-serif;
+    color: #7f7f7f;
+    /* vertical-align: middle; */
+    padding-top: 40x;
+}
+
+button {
+    background: #b8cecf;
+    color: black;
+    border-color: #7f7f7f;
+    margin: 0px 15px 0px 15px;
+}
+
+.tablestyle {
+    width: 70%;
+    margin-left: 80px;
+}
+
+.all {
+display: flex;
+flex-direction: row;
+}

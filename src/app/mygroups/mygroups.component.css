@@ -11,7 +11,8 @@ button {
     background: #b8cecf;
     color: black;
     border-color: #7f7f7f;
-    margin-left: 110px;
+    margin-top: 30px;
+    margin-left: 10px;
 }
 
 h3{
@@ -32,4 +33,9 @@ li {
     margin: auto;
     width: 50%;
     text-align: center;
+}
+
+table{
+    border: 1 solid red;
+    margin: 0px auto;
 }

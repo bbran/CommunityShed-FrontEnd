@@ -1,12 +1,17 @@
 <app-navigation></app-navigation>
 <div class="mygroups">
 <h3>My Groups</h3>
-<ul>
-  <!-- <li *ngFor="let group of groups"><h4>{{group?.groupName}}</h4></li> -->
 
-  <li *ngFor="let group of groups" [routerLink]="['/groupdetails/', group.id]" ><h4>{{group?.groupName}}</h4></li>
+<table>
+  <thead>
+  </thead>
+  <tbody>
+    <tr *ngFor="let group of groups" [routerLink]="['/groupdetails/', group.id]" >
+      <td><h4>{{group?.groupName}}</h4></td>
+    </tr>
+  </tbody>
+</table>
 
-</ul>
 <button type="button" routerLink="/newgroupform" type="submit" class="btn btn-primary">Add a New Group</button>
 
 </div>
@@ -26,8 +31,8 @@
       <td>{{group?.groupName}}</td>
       <td>
           <!-- [routerLink]="['/groupdetails/', group.id]" -->
-        <button (click)="acceptInvite(group.id)" >Join!</button>
-        <button (click)="denyInvite(group.id)">No Thanks. You guys ruin tools.</button>
+        <button class="btn btn-primary" (click)="acceptInvite(group.id)" >Join!</button>
+        <button class="btn btn-primary" (click)="denyInvite(group.id)">No Thanks. You guys ruin tools.</button>
       </td>
     </tr>
   </tbody>

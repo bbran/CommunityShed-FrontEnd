@@ -27,7 +27,7 @@ export class LogInComponent implements OnInit {
         result => {
           if (result !== null) {
             this.fullUser = result
-            localStorage.setItem("email", JSON.stringify(this.fullUser.email))
+            localStorage.setItem("email", this.fullUser.email)
             localStorage.setItem("firstName", this.fullUser.firstName)
             console.log(this.fullUser)
             this.router.navigateByUrl('/communityshed');

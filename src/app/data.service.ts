@@ -107,8 +107,8 @@ export class DataService {
 
     //get group details
     getGroupDetails(id): Observable<any> {
+        console.log("in service call")
         let apiURL = `${this.baseURL}groups/${id}`
-
         return this.http
             .get(apiURL, this.commonHttpOptions)
             .map(this.extractData)

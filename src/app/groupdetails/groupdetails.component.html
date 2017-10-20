@@ -1,7 +1,7 @@
 <app-navigation></app-navigation>
 
 <div class="toolsdisplay">
-<h1>Available Tools in your Group</h1>
+<h1>Available Tools in {{ groupdetails?.groupName }}</h1>
 
 <table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" datatable class="table table-striped table-bordered" id="dataTable">
   <thead>

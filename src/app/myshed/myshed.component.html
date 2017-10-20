@@ -1,11 +1,17 @@
 <app-navigation></app-navigation>
 
-<button type="submit" routerLink="/toolform">Add a New Tool</button>
+<div class="welcomeSection">
+    <h2>Welcome to your Shed!</h2>
+    <p>Here is a list of all of the tools you have added to your shed. Use the buttons below to add a new tool or look at tool details to edit your existing tools.</p>
+    <button type="submit" routerLink="/toolform">Add a New Tool</button> 
+</div>
+
 
 <div class="alltables">
-<h1>Requested Items</h1>
 
-<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="requestedTable" class="table table-striped table-bordered" style="width:100%">
+<h3 *ngIf=(requestedTools.length)>Requested Items</h3>
+
+<table *ngIf=(requestedTools.length) datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="requestedTable" class="table table-striped table-bordered" style="width:100%">
   <thead>
     <tr>
       <th>Tool Name</th>
@@ -29,9 +35,9 @@
   </tbody>
 </table>
 
-<h1>Items on Loan</h1>
+<h3 *ngIf=(loanedTools.length)>Items on Loan</h3>
 
-<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="onLoanTable" class="table table-striped table-bordered" style="width:100">
+<table *ngIf=(loanedTools.length) datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="onLoanTable" class="table table-striped table-bordered" style="width:100">
   <thead>
     <tr>
       <th>Loaned By</th>   
@@ -51,12 +57,14 @@
       <td>{{loanedTool.status}}</td>      
       <td>
           <button [routerLink]="['/tooldetails/', loanedTool.id]">Tool Details</button>
+          <button (click)="returnTool(loanedTool.id)">Return Tool</button>
+          
       </td>      
     </tr>
   </tbody>
 </table>
 
-<h1>Available Items</h1>
+<h3>Available Items</h3>
 
 <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="availableTable" class="table table-striped table-bordered" style="width:100%">
   <thead>

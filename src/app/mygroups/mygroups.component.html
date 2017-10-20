@@ -1,40 +1,38 @@
-<app-navigation></app-navigation>
+<app-navigation></app-navigation>\
+
 <div class="mygroups">
-<h3>My Groups</h3>
-
-<table>
-  <thead>
-  </thead>
-  <tbody>
-    <tr *ngFor="let group of groups" [routerLink]="['/groupdetails/', group.id]" >
-      <td><h4>{{group?.groupName}}</h4></td>
-    </tr>
-  </tbody>
-</table>
-
-<button type="button" routerLink="/newgroupform" type="submit" class="btn btn-primary">Add a New Group</button>
-
+  <h3>My Groups</h3>
+  <table>
+    <thead>
+    </thead>
+    <tbody>
+      <tr *ngFor="let group of groups" [routerLink]="['/groupdetails/', group.id]" >
+        <td><h4>{{group?.groupName}}</h4></td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" routerLink="/newgroupform" type="submit" class="btn btn-primary">Add a New Group</button>
 </div>
 
-<div class="mygroupstable">
-<h3>Join Us!</h3>
-<p></p>
-<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" id="pendingGroupTable">
-  <thead>
-    <tr>
-      <th>Group Name</th>
-      <th>Request to Join</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let group of pendinggroups">
-      <td>{{group?.groupName}}</td>
-      <td>
-          <!-- [routerLink]="['/groupdetails/', group.id]" -->
-        <button class="btn btn-primary" (click)="acceptInvite(group.id)" >Join!</button>
-        <button class="btn btn-primary" (click)="denyInvite(group.id)">No Thanks. You guys ruin tools.</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="mygroupstable" *ngIf="pendinggroups && pendinggroups.length">
+  <h3>Join Us!</h3>
+  <p></p>
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" id="pendingGroupTable">
+    <thead>
+      <tr>
+        <th>Group Name</th>
+        <th>Request to Join</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let group of pendinggroups">
+        <td>{{group?.groupName}}</td>
+        <td>
+            <!-- [routerLink]="['/groupdetails/', group.id]" -->
+          <button class="btn btn-primary" (click)="acceptInvite(group.id)" >Join!</button>
+          <button class="btn btn-primary" (click)="denyInvite(group.id)">No Thanks. You guys ruin tools.</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

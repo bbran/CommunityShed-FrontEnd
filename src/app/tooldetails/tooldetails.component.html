@@ -15,9 +15,9 @@
   Age: <p>{{tool?.toolAge}}</p>
   Status: <p>{{tool?.status}}</p>
   Owner of Tool: <p>{{tool?.owner?.firstName}} {{tool?.owner?.lastName}}</p>
-
+  
   <!--need to add logic for this button so it only displays if its the current user is the owner of the tool -->
-  <div>
+  <div *ngIf="userOwnsTool()"> 
       <button class="btn btn-primary" [routerLink]="['/toolform/', tool?.id]">Edit Tool</button>
       <button class="btn btn-primary" [routerLink]="['/addimage/', tool?.id]">Add Image to Tool</button>
   </div>

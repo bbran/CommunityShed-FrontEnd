@@ -13,12 +13,14 @@ import 'rxjs/add/operator/switchMap';
 })
 export class TooldetailsComponent implements OnInit {
 
-  tool: object;
+  tool;
+  userEmail;
 
   constructor(private dataservice: DataService, private location: Location, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getToolDetails()
+    this.getLocalStorage()
   }
 
   getToolDetails(){
@@ -38,4 +40,12 @@ export class TooldetailsComponent implements OnInit {
     console.log(this.tool)
   }
 
+  getLocalStorage(){
+    this.userEmail = localStorage.getItem("email")
+    console.log(this.userEmail)
+  }
+
+  userOwnsTool() {
+    return this.tool && this.userEmail === this.tool.owner.email;
+  }
 }

@@ -8,6 +8,7 @@
 <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
   <thead>
     <tr>
+      <th>Image</th>
       <th>Category</th>
       <th>Tool Name</th>
       <th>Description</th>
@@ -16,6 +17,8 @@
   </thead>
   <tbody>
     <tr *ngFor="let tool of availableTools">
+        
+      <td> <img src="{{tool?.image}}" height="50px"/></td>
       <td>{{tool?.category}}</td>
       <td>{{tool?.toolName}}</td>
       <td>{{tool?.toolDescription}}</td>

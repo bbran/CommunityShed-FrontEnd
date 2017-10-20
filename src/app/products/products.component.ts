@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { ActivatedRoute } from '@angular/router';
+import { Subject } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-products',
@@ -11,6 +12,7 @@ export class ProductsComponent implements OnInit {
 
   private searchString: string;
   private products = [];
+  private dtTrigger = new Subject();
 
   constructor(
     private dataservice: DataService, 
@@ -25,6 +27,7 @@ export class ProductsComponent implements OnInit {
       .subscribe(
           results => {
             this.products = results;
+            this.dtTrigger.next();
             console.log(this.products);
           },
           error => console.log(error)

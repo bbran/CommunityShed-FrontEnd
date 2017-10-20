@@ -21,7 +21,7 @@ button {
     background: #b8cecf;
     color: black;
     border-color: #7f7f7f;
-    margin-left: 50px;
+    margin-left: 30px;
 }
 
 h3{
@@ -30,9 +30,4 @@ h3{
 
 input {
     width: 300px;
-    margin-bottom: 20px;
-}
-
-#toolDescription {
-    height: 100px;
 }

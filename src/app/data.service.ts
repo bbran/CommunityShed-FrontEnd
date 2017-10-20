@@ -277,10 +277,9 @@ export class DataService {
 
     ///////// get products for a search string
     getProducts(searchString: string): Observable<any>  {
-        const objectToSend = {searchString};
-        console.log(objectToSend);
+        let apiURL = `${this.baseURL}products/${searchString}`
         return this.http
-        .post(this.baseURL + 'products', objectToSend, this.commonHttpOptions)
+        .get(apiURL, this.commonHttpOptions)
         .map(this.extractData)
         .catch(this.handleError)
     }

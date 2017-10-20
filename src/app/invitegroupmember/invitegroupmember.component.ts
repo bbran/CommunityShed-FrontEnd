@@ -23,11 +23,14 @@ export class InvitegroupmemberComponent implements OnInit {
   inviteNewMember(){
     this.route.params
     .switchMap((params: Params) => this.dataservice.inviteNewGroupMember (this.userData.value, params['id']))
-      .subscribe (
+    // need a return value here for this to work. 
+    //right now this returns us nothing, so we can't alert the user as to what is happening 
+    .subscribe (
         result => {
-          if (result !== null) {
+          console.log(result)
+          if (result === null) {
             alert("Member invited successfully.")
-            // this.router.navigateByUrl('/groupdetails');
+            this.router.navigateByUrl('/groupdetails');
           } else {
             alert ("Invite not made.")
           }

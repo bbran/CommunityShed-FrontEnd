@@ -14,7 +14,7 @@
   <button type="button" routerLink="/newgroupform" type="submit" class="btn btn-primary">Add a New Group</button>
 </div>
 
-<div class="mygroupstable" *ngIf=(pendinggroups.length)>
+<div class="mygroupstable" *ngIf="pendinggroups && pendinggroups.length">
   <h3>Join Us!</h3>
   <p></p>
   <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" id="pendingGroupTable">

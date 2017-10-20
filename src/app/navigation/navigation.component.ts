@@ -10,9 +10,13 @@ import { Router } from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
 
+  firstName;
+  lastName;
+
   constructor(private dataservice: DataService, private router: Router) { }
 
   ngOnInit() {
+    this.getLocalStorage()
   }
 
   logOutUser(){
@@ -30,6 +34,10 @@ export class NavigationComponent implements OnInit {
         },
         error => console.log('error: ' + JSON.stringify(error))
       )
-     
+  }
+
+  getLocalStorage(){
+    this.firstName = localStorage.getItem("firstName")
+    JSON.stringify(this.firstName)
   }
 }

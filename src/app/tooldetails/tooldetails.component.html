@@ -2,18 +2,23 @@
 
 <button (click)="this.location.back()">Return to Previous Page</button>
 
-<div>
-  <div>
+<div class="all">
+  <div class="image">
     <img src="{{tool?.image}}" height="150px" />
   </div>
+
+  <div class="textdisplay">
+    <h3>Tool Details</h3>
   Category: <p>{{tool?.category}}</p>
   Tool Name: <p>{{tool?.toolName}}</p>
   Description: <p>{{tool?.toolDescription}}</p>
   Age: <p>{{tool?.toolAge}}</p>
   Owner of Tool: <p>{{tool?.owner?.firstName}} {{tool?.owner?.lastName}}</p>
+
   <!--need to add logic for this button so it only displays if its the current user is the owner of the tool -->
   <div>
-      <button [routerLink]="['/toolform/', tool?.id]">Edit Tool</button>
-      <button [routerLink]="['/addimage/', tool?.id]">Add Image to Tool</button>
+      <button class="btn btn-primary" [routerLink]="['/toolform/', tool?.id]">Edit Tool</button>
+      <button class="btn btn-primary" [routerLink]="['/addimage/', tool?.id]">Add Image to Tool</button>
   </div>
+</div>
 </div>

@@ -57,7 +57,6 @@ export class MygroupsComponent implements OnInit {
             alert ("no results found")
           }
           this.dtTrigger.next()
-          // this.drawTable();
         },
         error => console.log(error)
       )

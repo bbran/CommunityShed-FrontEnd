@@ -151,4 +151,13 @@ export class MyshedComponent implements OnInit {
       .catch(error => console.error(error));
   }
 
+  returnTool(id){
+    this.dataservice.enableTool(id)
+    .subscribe(results => {
+      if(results){
+        this.getMyTools()
+      }
+    })
+  }
+
 }

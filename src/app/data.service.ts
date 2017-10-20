@@ -275,6 +275,16 @@ export class DataService {
             .catch(this.handleError)
     }
 
+    ///////// get products for a search string
+    getProducts(searchString: string): Observable<any>  {
+        const objectToSend = {searchString};
+        console.log(objectToSend);
+        return this.http
+        .post(this.baseURL + 'products', objectToSend, this.commonHttpOptions)
+        .map(this.extractData)
+        .catch(this.handleError)
+    }
+
   //success method for all service calls
 
   private extractData(res: Response) {

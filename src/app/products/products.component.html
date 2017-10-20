@@ -1,0 +1,11 @@
+<div class="productsearch">
+  <div class="header">
+    <h3>Or Search The Product Catalog:</h3>
+  </div>
+  <div>
+    <form class="searchform" (submit)="getProducts()">
+      <input type="text" class="form-control" [(ngModel)]="searchString" name="searchString" placeholder="Search for a tool" required>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+  </div>
+</div>

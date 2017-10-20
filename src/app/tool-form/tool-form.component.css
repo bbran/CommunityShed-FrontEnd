@@ -26,6 +26,10 @@ input {
     width: 300px;
     margin-bottom: 20px;
 }
+select {
+    width: 300px;
+    margin-bottom: 20px;
+}
 
 #toolDescription {
     height: 100px;

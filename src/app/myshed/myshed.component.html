@@ -24,7 +24,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let requestedTool of requestedTools">
-      <td> <img src="{{requestedtool?.image}}" height="50px"/></td>
+      <td> <img src="{{requestedTool?.image}}" height="50px"/></td>
       <td>{{requestedTool?.toolName}}</td>
       <td>{{requestedTool?.requests[0]?.borrower?.firstName}} {{requestedTool?.requests[0]?.borrower?.lastName}}</td>
       <td>{{requestedTool?.requests[0]?.loanEndDate | date: 'y-MM-d '}}</td>
@@ -55,7 +55,7 @@
     <tr *ngFor="let loanedTool of loanedTools">
       <td>{{loanedTool?.requests[0].borrower?.firstName}} {{loanedTool?.requests[0].borrower?.lastName}}</td>   
       <td>{{loanedTool?.requests[0]?.loanEndDate | date: 'y-MM-d '}}</td>   
-      <td> <img src="{{loanedtool?.image}}" height="50px"/></td>
+      <td> <img src="{{loanedTool?.image}}" height="50px"/></td>
       <td>{{loanedTool.toolName}}</td>
       <td>{{loanedTool.toolDescription}}</td>
       <td>{{loanedTool.status}}</td>      

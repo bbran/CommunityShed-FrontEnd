@@ -3,7 +3,7 @@
     <h3>Or Search The Product Catalog:</h3>
   </div>
   <div>
-    <form class="searchform" (submit)="getProducts()">
+    <form class="searchform" (submit)="getProducts()" (keyup.enter)="getProducts()">
       <input type="text" class="form-control" [(ngModel)]="searchString" name="searchString" placeholder="Search for a tool" required>
       <button type="submit" class="btn btn-primary">Search</button>
     </form>

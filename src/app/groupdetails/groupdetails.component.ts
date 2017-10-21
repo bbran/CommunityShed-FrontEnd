@@ -19,6 +19,7 @@ export class GroupdetailsComponent implements OnInit {
 
   group: object;
   availableTools;
+  groupdetails;
   
     @Input() groupID;
   
@@ -29,7 +30,7 @@ export class GroupdetailsComponent implements OnInit {
       this.dtOptions = {
         pagingType: "full_numbers"
       }
-
+      this.getNameForDisplay()
       this.showGroupTools()
     }
   
@@ -63,4 +64,22 @@ export class GroupdetailsComponent implements OnInit {
         }
       
     }
+
+    getNameForDisplay(){
+      this.route.params
+      .switchMap((params: Params) => this.dataservice.getGroupDetails(params['id']))
+      .subscribe(
+        results => {
+          if (results !== null) {
+            this.groupdetails = results
+            console.log(this.groupdetails)
+          } else {
+            alert ("no results found")
+          }
+        },
+        error => console.log(error)
+      )
+
+    }
+
   }

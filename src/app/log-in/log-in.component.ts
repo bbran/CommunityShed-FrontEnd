@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class LogInComponent implements OnInit {
 
   @ViewChild('logInForm') userData: NgForm;
+  fullUser;
 
   constructor(private dataservice: DataService, private router: Router) { }
 
@@ -25,6 +26,10 @@ export class LogInComponent implements OnInit {
       .subscribe (
         result => {
           if (result !== null) {
+            this.fullUser = result
+            localStorage.setItem("email", this.fullUser.email)
+            localStorage.setItem("firstName", this.fullUser.firstName)
+            console.log(this.fullUser)
             this.router.navigateByUrl('/communityshed');
           } else {
             alert ("Email is already reagistered. Please register with unique email.")

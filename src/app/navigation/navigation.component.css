@@ -6,3 +6,9 @@ float: left;
 .container {
     padding-left: 100px;
 }
+button {
+    background: #b8cecf;
+    color: black;
+    border-color: #7f7f7f;
+    margin-top: 10px;
+}

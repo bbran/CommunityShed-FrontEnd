@@ -10,3 +10,15 @@
     flex-direction: column;
     align-items: center;
   }
+
+  button {
+    background: #b8cecf;
+    color: black;
+    border-color: #7f7f7f;
+}
+h2{
+  font-family: 'Roboto', sans-serif;
+  color: #7f7f7f;
+  vertical-align: middle;
+  padding-top: 40x;
+}

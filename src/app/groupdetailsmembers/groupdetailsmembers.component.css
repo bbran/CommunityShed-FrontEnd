@@ -1,0 +1,17 @@
+.groupMembers {
+    display: flex;
+    justify-content: center;
+    padding-top: 200px;
+    font-family: 'Roboto', sans-serif;
+    color: #7f7f7f;
+}
+
+button {
+    background: #b8cecf;
+    color: black;
+    border-color: #7f7f7f;
+}
+
+h3{
+    padding-bottom: 20px;
+}

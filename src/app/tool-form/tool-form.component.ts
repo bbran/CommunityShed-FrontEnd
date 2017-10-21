@@ -19,14 +19,16 @@ export class ToolFormComponent implements OnInit {
   successMessage: string;
   errorMessage: string;
 
-  tool: object;
+  tool: any;
 
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute,
     private location: Location,
     private router: Router
-  ) {}
+  ) {
+    this.tool = { category: '' };
+  }
 
 
   getToolForEdit(){

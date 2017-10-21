@@ -2,15 +2,25 @@
 <div class="toolform">
   <form novalidate (ngSubmit)="saveTool(toolForm)" #toolForm="ngForm">
     <div class="header">
-        <h3>Add Tool</h3>      
+        <h3>Tool Details</h3>      
     </div>
-    <input [ngModel]="tool?.id" ngModel #model="ngModel" type="hidden" name="id">    
-    <div class="form-group">
-      <label for="category" class="col-sm-2 control-label">Category</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" [ngModel]="tool?.category" ngModel #model="ngModel" id="category" name="category" required>
-      </div>
-    </div>
+    <input [ngModel]="tool?.id" ngModel #model="ngModel" type="hidden" name="id">  
+
+    <label for="category" class="col-sm-2 control-label">Category</label>
+    <div class="col-sm-10">
+    <select class="form-control" [(ngModel)]="tool.category" id="category" name="category" required>
+      <option value="handtools">Hand Tools</option>
+      <option value="powertool">Power Tools</option>
+      <option value="landscapingtool">Landscaping</option>
+      <option value="automotivetools">Automotive</option>
+      <option value="woodworkingtool">Woodworking</option>
+      <option value="electricaltool">Electrical</option>
+      <option value="ladersliftstool">Ladders/Lifts</option>
+      <option value="plumbingtool">Plumbing</option>
+      <option value="weldingtool">Welding</option>
+    </select>
+  </div>
+
     <div class="form-group">
       <label for="toolName" class="col-sm-2 control-label">Tool Name</label>
       <div class="col-sm-10">

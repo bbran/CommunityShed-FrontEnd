@@ -11,8 +11,9 @@ import { Subject } from 'rxjs/Rx';
 export class ProductsComponent implements OnInit {
 
   private searchString: string;
-  private products = [];
-  private dtTrigger = new Subject();
+  private products;
+  dtTrigger = new Subject();
+  dtOptions: DataTables.Settings = {};
 
   constructor(
     private dataservice: DataService, 
@@ -20,8 +21,13 @@ export class ProductsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  }
-
+    
+          this.dtOptions = {
+            pagingType: "full_numbers",
+            searching: false
+          }
+        }
+  
   getProducts() {
     this.dataservice.getProducts(this.searchString)
       .subscribe(
@@ -32,6 +38,10 @@ export class ProductsComponent implements OnInit {
           },
           error => console.log(error)
       );
+  }
+
+  copyProductDetails() {
+    console.log("this works");
   }
 
 }

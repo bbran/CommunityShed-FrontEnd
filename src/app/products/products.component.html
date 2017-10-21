@@ -1,0 +1,28 @@
+<div class="productsearch">
+  <div class="header">
+    <h3>Or Search The Product Catalog:</h3>
+  </div>
+  <div>
+    <form class="searchform" (submit)="getProducts()" (keyup.enter)="getProducts()">
+      <input type="text" class="form-control" [(ngModel)]="searchString" name="searchString" placeholder="Search for a tool" required>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+  </div>
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="requestedTable" class="table table-striped table-bordered" style="width:100%">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Product Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td><img src="{{product.images[0]}}"></td>
+          <td>{{product.name}}</td>
+          <td>
+            <button>Just a button</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>

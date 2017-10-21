@@ -274,6 +274,15 @@ export class DataService {
             .catch(this.handleError)
     }
 
+    ///////// get products for a search string
+    getProducts(searchString: string): Observable<any>  {
+        let apiURL = `${this.baseURL}products/${searchString}`
+        return this.http
+        .get(apiURL, this.commonHttpOptions)
+        .map(this.extractData)
+        .catch(this.handleError)
+    }
+
   //success method for all service calls
 
   private extractData(res: Response) {

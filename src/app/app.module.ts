@@ -34,6 +34,7 @@ import { InvitegroupmemberComponent } from './invitegroupmember/invitegroupmembe
 import { ToolFormComponent } from './tool-form/tool-form.component';
 import { AddimageComponent } from './addimage/addimage.component';
 import { InvitenewuserComponent } from './invitenewuser/invitenewuser.component';
+import { ProductsComponent } from './products/products.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { InvitenewuserComponent } from './invitenewuser/invitenewuser.component'
     InvitegroupmemberComponent,
     ToolFormComponent,
     AddimageComponent,
-    InvitenewuserComponent
+    InvitenewuserComponent,
+    ProductsComponent
   ],
 
   imports: [

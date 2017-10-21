@@ -15,6 +15,7 @@
       <tr>
         <th>Image</th>
         <th>Product Name</th>
+        <th>Product Details</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -22,6 +23,16 @@
       <tr *ngFor="let product of products">
         <td><img src="{{product.images[0]}}"height="50px"></td>
         <td>{{product.name}}</td>
+        <td>
+          <b>Manufacturer:</b> {{product.manufacturer}}  
+          <b>Dimensions(mm):</b> H{{product.length}} x L{{product.length}} x W{{product.width}}  
+          <b>Color:</b> {{product.color}}
+          <br>
+          <b>Model:</b> {{product.model}}  
+          <b>MPN:</b> {{product.mpn}}
+          <br>
+          <b>Additional Detail:</b> {{product.features.blob}}
+        </td>
         <td>
           <button (click)="copyProductDetails()">Copy Product Details</button>
         </td>

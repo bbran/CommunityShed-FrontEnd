@@ -42,6 +42,7 @@ export class ProductsComponent implements OnInit {
 
   copyProductDetails() {
     console.log("this works");
+    window.scrollTo(0,0);
   }
 
 }

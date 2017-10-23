@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { DataService } from '../data.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs/Rx';
@@ -12,8 +12,10 @@ export class ProductsComponent implements OnInit {
 
   private searchString: string;
   private products;
+  private toolDetail: string;
   dtTrigger = new Subject();
   dtOptions: DataTables.Settings = {};
+  @Output() onSelectProduct = new EventEmitter<object>();
 
   constructor(
     private dataservice: DataService, 
@@ -40,8 +42,10 @@ export class ProductsComponent implements OnInit {
       );
   }
 
-  copyProductDetails() {
-    console.log("this works");
+  copyProductDetails(toolName: string, manufacturer: string, toolDescription: string, model: string) {
+    this.toolDetail = `{"toolName": "${toolName}", "manufacturer": "${manufacturer}", "toolDescription": "Model: ${model}<br>Details: ${toolDescription}"}`
+    console.log(JSON.parse(this.toolDetail));
+    this.onSelectProduct.emit(JSON.parse(this.toolDetail));
     window.scrollTo(0,0);
   }
 

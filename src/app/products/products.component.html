@@ -11,10 +11,18 @@
   </div>
   <div *ngIf="products" class="product-table">
   <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <colgroup>
+      <col span="1" style="width: 6%;">
+      <col span="1" style="width: 18%;">
+      <col span="1" style="width: 20%;">
+      <col span="1" style="width: 45%;">
+      <col span="1">
+    </colgroup>
     <thead>
       <tr>
         <th>Image</th>
         <th>Product Name</th>
+        <th>Specifications</th>
         <th>Product Details</th>
         <th>Actions</th>
       </tr>
@@ -24,17 +32,19 @@
         <td><img src="{{product.images[0]}}"height="50px"></td>
         <td>{{product.name}}</td>
         <td>
-          <b>Manufacturer:</b> {{product.manufacturer}}  
-          <b>Dimensions(mm):</b> H{{product.length}} x L{{product.length}} x W{{product.width}}  
-          <b>Color:</b> {{product.color}}
+          <b>Manufacturer:</b> {{product.manufacturer}}
           <br>
-          <b>Model:</b> {{product.model}}  
+          <b>Model:</b> {{product.model}}
+          <br>
           <b>MPN:</b> {{product.mpn}}
           <br>
-          <b>Additional Detail:</b> {{product.features.blob}}
+          <b>Dimensions(mm):</b> H{{product.length}} x L{{product.length}} x W{{product.width}}
+          <br>
+          <b>Color:</b> {{product.color}}
         </td>
+        <td><b>Additional Detail:</b> {{product.features.blob}}</td>
         <td>
-          <button (click)="copyProductDetails()">Copy Product Details</button>
+          <button (click)="copyProductDetails(product.name, product.manufacturer, product.features.blob, product.model)">Copy Product Details</button>
         </td>
       </tr>
     </tbody>

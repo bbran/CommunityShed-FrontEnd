@@ -61,6 +61,11 @@ export class ToolFormComponent implements OnInit {
             this.tool = {};
     }
   }
+
+  onSelectProduct(tool) {
+    console.log("Select Product: " + tool);
+    this.tool = tool;
+  }
 }
   // toolForm: NgForm;
   // @ViewChild('toolForm')

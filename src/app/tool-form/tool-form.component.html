@@ -54,5 +54,5 @@
   </form>
 </div>
 <div>
-  <app-products *ngIf="!tools" ></app-products>
+  <app-products *ngIf="tool" (onSelectProduct)="onSelectProduct($event)"></app-products>
 </div>

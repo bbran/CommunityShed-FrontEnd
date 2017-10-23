@@ -1,7 +1,8 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild } from '@angular/core';
 import { DataService } from '../data.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs/Rx';
+import { DataTableDirective } from 'angular-datatables';
 
 @Component({
   selector: 'app-products',
@@ -17,30 +18,48 @@ export class ProductsComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   @Output() onSelectProduct = new EventEmitter<object>();
 
+  @ViewChild(DataTableDirective)
+  table: DataTableDirective;
+
   constructor(
     private dataservice: DataService, 
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    
-          this.dtOptions = {
-            pagingType: "full_numbers",
-            searching: false
-          }
-        }
+      this.dtOptions = {
+        pagingType: "full_numbers",
+        searching: false
+    }
+  }
   
   getProducts() {
     this.dataservice.getProducts(this.searchString)
-      .subscribe(
-          results => {
+    .subscribe(
+      results => {
+        if (results !== null) {
+          // this.products = results
+          console.log('in subscribe:', results)
+        } else {
+          alert ("no results found")
+        }
+        setTimeout(() => {
+          console.log('in timeout:', results);
+          const dtinst = this.table && this.table.dtInstance;
+          console.log('dtinst:', dtinst);
+          if (dtinst) {
+            dtinst
+              .then(inst => inst && inst.destroy())
+              .then(() => this.products = results)
+              .then(() => this.dtTrigger.next());
+          } else {
             this.products = results;
-            setTimeout(() => {
-              this.dtTrigger.next();
-            }, 100);
-          },
-          error => console.log(error)
-      );
+            this.dtTrigger.next();
+          }
+        }, 500);
+      },
+      error => console.log(error)
+    ) 
   }
 
   copyProductDetails(toolName: string, manufacturer: string, details: string, model: string, mpn: string, imageUrl: string) {

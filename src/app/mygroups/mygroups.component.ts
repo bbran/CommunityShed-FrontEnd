@@ -78,8 +78,8 @@ export class MygroupsComponent implements OnInit {
           }, 100);
         },
         error => console.log(error)
-      )
-   
+      ) 
+      
   }
 
     denyInvite(id){

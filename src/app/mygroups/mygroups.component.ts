@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/map';
+import { DataTableDirective } from 'angular-datatables';
 
 @Component({
   selector: 'app-mygroups',
@@ -12,7 +13,7 @@ import 'rxjs/add/operator/map';
 })
 export class MygroupsComponent implements OnInit {
 
-  // dtOptions: DataTables.Settings = {};
+  dtOptions: DataTables.Settings = {};
   
   dtTrigger = new Subject();
 
@@ -20,10 +21,15 @@ export class MygroupsComponent implements OnInit {
   pendinggroups;
   user;
 
+  @ViewChild(DataTableDirective)
+  table: DataTableDirective;
 
     constructor(private router: Router, private dataservice: DataService, private route: ActivatedRoute) { }
   
     ngOnInit() {
+      // this.dtOptions = {
+      //   pagingType: "full_numbers"
+      // }
 
       this.displayMyGroups()
       this.displayPendingRequest()
@@ -35,6 +41,7 @@ export class MygroupsComponent implements OnInit {
         .subscribe(
           results => {
             if (results !== null) {
+              results.sort((a, b) => a.groupName.charCodeAt(0) - b.groupName.charCodeAt(0));
               this.groups = results
             } else {
               alert ("no results found")
@@ -50,13 +57,25 @@ export class MygroupsComponent implements OnInit {
       .subscribe(
         results => {
           if (results !== null) {
-
-            this.pendinggroups = results
-            console.log(this.pendinggroups)
+            // this.pendinggroups = results
+            console.log('in subscribe:', results)
           } else {
             alert ("no results found")
           }
-          this.dtTrigger.next()
+          setTimeout(() => {
+            console.log('in timeout:', results);
+            const dtinst = this.table && this.table.dtInstance;
+            console.log('dtinst:', dtinst);
+            if (dtinst) {
+              dtinst
+                .then(inst => inst && inst.destroy())
+                .then(() => this.pendinggroups = results)
+                .then(() => this.dtTrigger.next());
+            } else {
+              this.pendinggroups = results;
+              this.dtTrigger.next();
+            }
+          }, 100);
         },
         error => console.log(error)
       )
@@ -94,6 +113,6 @@ export class MygroupsComponent implements OnInit {
               },
               error => console.log(error)
             )
-          console.log(this.user)
+         // console.log(this.user)
         }
   }

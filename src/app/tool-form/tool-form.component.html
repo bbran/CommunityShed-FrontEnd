@@ -5,7 +5,7 @@
         <h3>Tool Details</h3>      
     </div>
     <input [ngModel]="tool?.id" ngModel #model="ngModel" type="hidden" name="id">  
-
+    <input [ngModel]="tool?.image" ngModel #model="ngModel" type="hidden" name="image">
     <label for="category" class="col-sm-2 control-label">Category</label>
     <div class="col-sm-10">
     <select class="form-control" [(ngModel)]="tool.category" id="category" name="category" required>

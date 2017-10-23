@@ -42,8 +42,15 @@ export class ProductsComponent implements OnInit {
       );
   }
 
-  copyProductDetails(toolName: string, manufacturer: string, toolDescription: string, model: string) {
-    this.toolDetail = `{"toolName": "${toolName}", "manufacturer": "${manufacturer}", "toolDescription": "Model: ${model}<br>Details: ${toolDescription}"}`
+  copyProductDetails(toolName: string, manufacturer: string, details: string, model: string, mpn: string, imageUrl: string) {
+    toolName = toolName !== null ? toolName.substring(0, 30) : "";
+    manufacturer = manufacturer !== null ? manufacturer.substring(0, 30) : "";
+    model = model !== null ? model : "";
+    mpn = mpn !== null ? mpn : "";
+    details = details !== null ? details : "";
+    let toolDescription = `Model: ${model}; MPN: ${mpn}; Details: ${details}`
+    toolDescription = toolDescription.substring(0, 80);
+    this.toolDetail = `{"toolName": "${toolName}", "manufacturer": "${manufacturer}", "toolDescription": "${toolDescription}", "image": "${imageUrl}"}`
     console.log(JSON.parse(this.toolDetail));
     this.onSelectProduct.emit(JSON.parse(this.toolDetail));
     window.scrollTo(0,0);

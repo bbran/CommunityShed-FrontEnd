@@ -63,7 +63,6 @@ export class ToolFormComponent implements OnInit {
   }
 
   onSelectProduct(tool) {
-    console.log("Select Product: " + tool);
     this.tool = tool;
   }
 }

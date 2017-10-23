@@ -35,7 +35,9 @@ export class ProductsComponent implements OnInit {
       .subscribe(
           results => {
             this.products = results;
-            this.dtTrigger.next();
+            setTimeout(() => {
+              this.dtTrigger.next();
+            }, 100);
             console.log(this.products);
           },
           error => console.log(error)

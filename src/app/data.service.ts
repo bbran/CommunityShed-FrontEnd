@@ -6,6 +6,24 @@ import 'rxjs/add/observable/throw';
 
 import { Observable } from 'rxjs/Observable';
 
+const toolCategories = [
+	{ id: 'handtool', text: 'Hand Tools' },
+	{ id: 'powertool', text: 'Power Tools' },
+	{ id: 'landscapingtool', text: 'Landscaping' },
+	{ id: 'automotivetools', text: 'Automotive' },
+	{ id: 'woodworkingtool', text: 'Woodworking' },
+	{ id: 'electricaltool', text: 'Electrical' },
+	{ id: 'ladersliftstool', text: 'Ladders/Lifts' },
+	{ id: 'plumbingtool', text: 'Plumbing' },
+	{ id: 'weldingtool', text: 'Welding' },
+];
+
+function categoryIdToText(id: string) {
+    const category = toolCategories.find(x => x.id === id);
+    if (category) return category.text;
+    return id;
+}
+
 @Injectable()
 export class DataService {
 
@@ -25,6 +43,10 @@ export class DataService {
     }
 
     //Sign up page to create a new user
+
+    getToolCategories(): Observable<any[]> {
+        return Observable.from([toolCategories]);
+    }
 
     createNewUser(userData: object): Observable<any> {
         const objectToSend = JSON.stringify(userData);
@@ -49,10 +71,11 @@ export class DataService {
     }
 
     //get all community tools
-    getCommunityTools(): Observable<any> {
+    getCommunityTools(): Observable<any[]> {
         return this.http
             .get(this.baseURL + 'tools', this.commonHttpOptions)
             .map(this.extractData)
+            .do(tools => tools.forEach(tool => tool.categoryName = categoryIdToText(tool.category)))
             .catch(this.handleError)
     }
 
@@ -83,17 +106,19 @@ export class DataService {
         return this.http
             .get(apiURL, this.commonHttpOptions)
             .map(this.extractData)
+            .do(tools => tools.forEach(tool => tool.categoryName = categoryIdToText(tool.category)))
             .catch(this.handleError)
     }
 
     //get tool details
     getToolDetails(id): Observable<any> {
-    let apiURL = `${this.baseURL}tools/${id}`
-    return this.http
-      .get(apiURL, this.commonHttpOptions)
-      .map(this.extractData)
-      .catch(this.handleError)
-}
+        let apiURL = `${this.baseURL}tools/${id}`
+        return this.http
+        .get(apiURL, this.commonHttpOptions)
+        .map(this.extractData)
+        .do(tool => tool.categoryName = categoryIdToText(tool.category))
+        .catch(this.handleError)
+    }
 
 
     //get to display the members of the group; group detail members component
@@ -131,6 +156,7 @@ export class DataService {
         return this.http
             .get(this.baseURL + 'tools/mine', this.commonHttpOptions)
             .map(this.extractData)
+            .do(tools => tools.forEach(tool => tool.categoryName = categoryIdToText(tool.category)))
             .catch(this.handleError)
     }
 

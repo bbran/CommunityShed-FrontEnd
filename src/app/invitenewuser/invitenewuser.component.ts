@@ -16,6 +16,7 @@ export class InvitenewuserComponent implements OnInit {
   @ViewChild('inviteNewUserForm') 
   userData: NgForm;
   user;
+  fullUser;
 
   constructor(
     private dataservice: DataService, 
@@ -31,7 +32,6 @@ export class InvitenewuserComponent implements OnInit {
 
    this.route.params
       .switchMap((params: Params) => this.dataservice.getUserInvite(params['inviteKey']))
-
       .subscribe(
         results => {
           if (results !== null) {
@@ -55,6 +55,9 @@ export class InvitenewuserComponent implements OnInit {
       .subscribe (
         result => {
           if (result !== null) {
+            this.fullUser = result
+            localStorage.setItem("email", this.fullUser.email)
+            localStorage.setItem("firstName", this.fullUser.firstName)
             alert("User created successfully.")
             this.router.navigateByUrl('/mygroups');
           } else {

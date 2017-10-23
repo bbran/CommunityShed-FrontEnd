@@ -1,6 +1,6 @@
 <app-navigation></app-navigation>
 
-<button (click)="this.location.back()">Return to Previous Page</button>
+
 
 <div class="all">
   <div class="image">
@@ -22,4 +22,8 @@
       <button class="btn btn-primary" [routerLink]="['/addimage/', tool?.id]">Add Image to Tool</button>
   </div>
 </div>
+<!-- <button (click)="this.location.back()">Return to Previous Page</button> -->
+</div>
+<div class="bottomlink">
+<a (click)="this.location.back()" class="btn"> &lt;-- Return to Previous Page</a>
 </div>

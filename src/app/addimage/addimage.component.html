@@ -1,6 +1,6 @@
 <app-navigation></app-navigation>
 
-<button routerLink="/tooldetails/{{tool.id}}">Return to Previous Page</button>
+
 
 <div class="addimageform">
   <!-- took out ngSubmit from opening form tag: (ngSubmit)="addImage(addImageForm)" -->
@@ -16,3 +16,10 @@
     </div>
   </form>
 </div>
+
+<div class="bottomlink">
+  <a routerLink="/tooldetails/{{tool.id}}"> &lt;-- Return to Previous Page</a>
+</div>
+
+<!-- 
+<button routerLink="/tooldetails/{{tool.id}}">Return to Previous Page</button> -->

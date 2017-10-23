@@ -1,0 +1,25 @@
+#addImageForm {
+    text-align: center;
+}
+
+.addimageform{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 50px;
+    font-family: 'Roboto', sans-serif;
+    color: #7f7f7f;
+}
+
+h3 {
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.bottomlink{
+    text-align: center;
+}
+
+.form-group {
+    padding-inline-start: 120px;
+}

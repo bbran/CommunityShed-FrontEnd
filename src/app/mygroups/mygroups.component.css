@@ -39,3 +39,7 @@ table{
     border: 1 solid red;
     margin: 0px auto;
 }
+
+.is-hidden {
+    display: none;
+}

@@ -70,4 +70,10 @@ export class ToolFormComponent implements OnInit {
         )
     }
   }
+
+  onSelectProduct(tool) {
+    this.tool = tool;
+  }
 }
+
+

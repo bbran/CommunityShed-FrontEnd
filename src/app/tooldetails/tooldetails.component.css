@@ -1,6 +1,8 @@
 .all{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    padding: 50px;
 }
 
 .textdisplay{
@@ -9,8 +11,7 @@
 }
 
 .image {
-    margin: 50px 100px;
-
+    margin: 50px 100px 50px 0px;
 }
 
 button {
@@ -19,6 +20,11 @@ button {
     border-color: #7f7f7f;
     margin: 0px 15px 0px 15px;
 }
+
 h3 {
     padding-bottom: 20px;
+}
+
+.bottomlink{
+text-align: center;
 }

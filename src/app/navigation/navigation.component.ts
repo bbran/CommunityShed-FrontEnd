@@ -25,7 +25,7 @@ export class NavigationComponent implements OnInit {
         result => {
           console.log(result);
           if (result === true) {
-            alert("User logged out successfully.")
+            // alert("User logged out successfully.")
             console.log("successfully logged out")
             this.router.navigateByUrl('/homepage');
           } else {

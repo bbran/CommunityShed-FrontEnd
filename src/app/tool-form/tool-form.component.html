@@ -56,5 +56,5 @@
 <a (click)="this.location.back()">&lt;-- Return to Previous Page</a>
 </div>
 <div>
-    <app-products *ngIf="tool" (onSelectProduct)="onSelectProduct($event)"></app-products>
+    <app-products *ngIf="!tool.id" (onSelectProduct)="onSelectProduct($event)"></app-products>
 </div>

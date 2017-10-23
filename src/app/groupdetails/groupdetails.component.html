@@ -23,7 +23,8 @@
       <td>{{tool?.toolDescription}}</td>
       <td>
         <button class="btn btn-primary" [routerLink]="['/tooldetails/', tool.id]">Tool Details</button>
-        <button class="btn btn-primary" data-id={{tool.id}} routerLink='/requestform'>Request Tool</button>
+        <button class="btn btn-primary" [routerLink]="['/requestform/', tool.id]">Request Tool</button>
+        <!-- <button class="btn btn-primary" data-id={{tool.id}} routerLink='/requestform'>Request Tool</button> -->
       </td>
     </tr>
   </tbody>

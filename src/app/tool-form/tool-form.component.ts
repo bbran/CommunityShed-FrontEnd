@@ -21,6 +21,7 @@ export class ToolFormComponent implements OnInit {
 
   tool: any;
   addedTool;
+  toolCategories: any[];
 
   constructor(
     private dataService: DataService,
@@ -43,6 +44,9 @@ export class ToolFormComponent implements OnInit {
       .subscribe((params: Params) => {
         (+params['id']) ? this.getToolForEdit() : null;
       });
+    this.dataService
+      .getToolCategories()
+      .subscribe(categories => this.toolCategories = categories);
   }
 
   saveTool(tool: NgForm){

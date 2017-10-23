@@ -20,6 +20,7 @@ export class ToolFormComponent implements OnInit {
   errorMessage: string;
 
   tool: any;
+  addedTool;
 
   constructor(
     private dataService: DataService,
@@ -56,74 +57,17 @@ export class ToolFormComponent implements OnInit {
     }else{
       this.dataService.createNewTool(tool.value)
           .subscribe(
-            tool => this.successMessage = "Record added successfully",
-            error =>  this.errorMessage = <any>error);
-            this.tool = {};
+            tool => {
+              if (tool !== null) {
+              this.addedTool = tool
+              console.log(this.addedTool)
+              this.router.navigateByUrl('/tooldetails/' + this.addedTool.id);
+            } else {
+              alert ("no results found")
+            }
+          },
+          error => console.log(error)
+        )
     }
   }
 }
-  // toolForm: NgForm;
-  // @ViewChild('toolForm')
-  // toolData: object;
-  // toolInfoFromGet
-
-  // successMessage: string;
-  // errorMessage: string;
-
-
-  // constructor( 
-  //   private dataservice: DataService, 
-  //   private router: Router, 
-  //   private route: ActivatedRoute 
-  // ) {}
-
-  // //checks if id exists in URL to know if its an edit or add
-  // ngOnInit() {
-  //   this.route.params
-  //   .subscribe((params: Params) => {
-  //     (+params['id']) ? this.getToolForEdit() : null;
-  //   });
-  // }
-
-  // //if tool id exists, call getToolDetails to get the info about the tool
-  // getToolForEdit(){
-  //   this.route.params
-  //     .switchMap((params: Params) => this.dataservice.getToolDetails(params['id']))
-  //     .subscribe(result => this.toolInfoFromGet = result);
-  // }
-
-  // //decide if its an edit or add based on if tool id exists and make service calls appropriately
-  // saveTool(toolData: NgForm){
-  //   console.log(this.toolData)
-  //   // if(typeof this.toolData.id === "number"){
-  //   //   console.log(this.toolInfoFromGet.id)      
-  //   //   this.dataservice.editTool(this.toolInfoFromGet.id)
-  //   //       .subscribe(
-  //   //         result => this.successMessage = "Record updated successfully",
-  //   //         error =>  this.errorMessage = <any>error);
-  //   // }else{
-  //   //   this.dataservice.createNewTool(this.toolData)
-  //   //       .subscribe(
-  //   //         result => this.successMessage = "Record added successfully",
-  //   //         error =>  this.errorMessage = <any>error);
-  //   //         this.toolData = {};
-  //   // }
-
-  // }
-  // // submitNewTool(){
-  // //   console.log(this.toolData.value)
-  
-  // //   this.dataservice.createNewTool(this.toolData.value) 
-  // //     .subscribe (
-  // //       result => {
-  // //         if (result !== null) {
-  // //           alert("tool created successfully.")
-  // //           this.router.navigateByUrl('/myshed');
-  // //         } else {
-  // //           alert ("Tool create broken. Fix!")
-  // //         }
-  // //       },
-  // //       error => console.log(error)
-  // //     )
-  
-  // // }

@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class SignUpComponent implements OnInit {
 
   @ViewChild('signUpForm') userData: NgForm;
+  fullUser;
 
   constructor(private dataservice: DataService, private router: Router) { }
 
@@ -25,6 +26,9 @@ submitNewUser(){
     .subscribe (
       result => {
         if (result !== null) {
+          this.fullUser = result
+          localStorage.setItem("email", this.fullUser.email)
+          localStorage.setItem("firstName", this.fullUser.firstName)
           alert("User created successfully.")
           this.router.navigateByUrl('/communityshed');
         } else {

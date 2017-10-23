@@ -15,7 +15,7 @@ button {
     background: #b8cecf;
     color: black;
     border-color: #7f7f7f;
-    margin-left: 50px;
+    margin-left: 100px;
 }
 
 h3{
@@ -25,12 +25,23 @@ h3{
 input {
     width: 300px;
     margin-bottom: 20px;
+    margin-left: 20px;
 }
 select {
     width: 300px;
     margin-bottom: 20px;
+    margin-left: 20px;
 }
 
 #toolDescription {
     height: 100px;
+}
+
+/* label {
+    padding-right: 70px;
+} */
+
+.bottomlink{
+    padding-top: 40px;
+    text-align: center;
 }

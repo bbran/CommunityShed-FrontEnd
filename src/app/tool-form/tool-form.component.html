@@ -52,9 +52,9 @@
     </div>
   </form>
 </div>
-<div>
-  <app-products *ngIf="tool" (onSelectProduct)="onSelectProduct($event)"></app-products>
-</div>
 <div class="bottomlink">
 <a (click)="this.location.back()">&lt;-- Return to Previous Page</a>
+</div>
+<div>
+    <app-products *ngIf="tool" (onSelectProduct)="onSelectProduct($event)"></app-products>
 </div>

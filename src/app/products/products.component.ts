@@ -35,31 +35,16 @@ export class ProductsComponent implements OnInit {
   
   getProducts() {
     this.dataservice.getProducts(this.searchString)
-    .subscribe(
-      results => {
-        if (results !== null) {
-          // this.products = results
-          console.log('in subscribe:', results)
-        } else {
-          alert ("no results found")
-        }
-        setTimeout(() => {
-          console.log('in timeout:', results);
-          const dtinst = this.table && this.table.dtInstance;
-          console.log('dtinst:', dtinst);
-          if (dtinst) {
-            dtinst
-              .then(inst => inst && inst.destroy())
-              .then(() => this.products = results)
-              .then(() => this.dtTrigger.next());
-          } else {
-            this.products = results;
+      .subscribe(
+        results => {
+          this.products = results;
+          setTimeout(() => {
             this.dtTrigger.next();
-          }
-        }, 500);
-      },
-      error => console.log(error)
-    ) 
+          }, 100);
+          console.log(this.products);
+        },
+        error => console.log(error)
+      );
   }
 
   copyProductDetails(toolName: string, manufacturer: string, details: string, model: string, mpn: string, imageUrl: string) {

@@ -38,22 +38,20 @@ export class ProductsComponent implements OnInit {
             setTimeout(() => {
               this.dtTrigger.next();
             }, 100);
-            console.log(this.products);
           },
           error => console.log(error)
       );
   }
 
   copyProductDetails(toolName: string, manufacturer: string, details: string, model: string, mpn: string, imageUrl: string) {
-    toolName = toolName !== null ? toolName.substring(0, 30) : "";
-    manufacturer = manufacturer !== null ? manufacturer.substring(0, 30) : "";
+    toolName = toolName !== null ? JSON.stringify(toolName.substring(0, 30)) : "";
+    manufacturer = manufacturer !== null ? JSON.stringify(manufacturer.substring(0, 30)) : "";
     model = model !== null ? model : "";
     mpn = mpn !== null ? mpn : "";
     details = details !== null ? details : "";
     let toolDescription = `Model: ${model}; MPN: ${mpn}; Details: ${details}`
-    toolDescription = toolDescription.substring(0, 80);
-    this.toolDetail = `{"toolName": "${toolName}", "manufacturer": "${manufacturer}", "toolDescription": "${toolDescription}", "image": "${imageUrl}"}`
-    console.log(JSON.parse(this.toolDetail));
+    toolDescription = JSON.stringify(toolDescription.substring(0, 80));
+    this.toolDetail = `{"toolName": ${toolName}, "manufacturer": ${manufacturer}, "toolDescription": ${toolDescription}, "image": "${imageUrl}"}`
     this.onSelectProduct.emit(JSON.parse(this.toolDetail));
     window.scrollTo(0,0);
   }

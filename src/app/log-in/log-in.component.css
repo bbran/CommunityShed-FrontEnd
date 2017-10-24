@@ -37,7 +37,8 @@ h3{
     background-color: #FCFCFC;
     margin: auto;
     width: 50%;
-    height: 29%;
+    min-width: 400px;
+    height: auto;
     padding: 20px 75px;
     border-color: #7f7f7f;
     border: 2px solid;
@@ -52,4 +53,12 @@ img {
 
 .logo{
     padding-bottom: 20px;
+}
+
+input.ng-invalid.ng-touched {
+    border-color: red;
+}
+
+.message {
+    color: red;
 }

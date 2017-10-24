@@ -13,6 +13,7 @@ export class SignUpComponent implements OnInit {
 
   @ViewChild('signUpForm') userData: NgForm;
   fullUser;
+  private messageToShow: string;
 
   constructor(private dataservice: DataService, private router: Router) { }
 
@@ -31,10 +32,13 @@ submitNewUser(){
           localStorage.setItem("firstName", this.fullUser.firstName)
           this.router.navigateByUrl('/myshed');
         } else {
-          alert ("Email is already reagistered. Please register with unique email.")
+          alert ("Email is already registered. Please register with different email.")
         }
       },
-      error => console.log(error)
+      error => {
+        this.messageToShow = "Email is already registered. Please register with different email.";
+        console.log(error);
+      }
     )
 
 }

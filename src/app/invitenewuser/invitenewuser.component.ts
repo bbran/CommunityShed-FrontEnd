@@ -17,6 +17,7 @@ export class InvitenewuserComponent implements OnInit {
   userData: NgForm;
   user;
   fullUser;
+  private messageToShow: string;
 
   constructor(
     private dataservice: DataService, 
@@ -64,7 +65,10 @@ export class InvitenewuserComponent implements OnInit {
             alert ("not working")
           }
         },
-        error => console.log(error)
+        error => {
+          console.log(error)
+          this.messageToShow = "Email not recognized for that invitation key. Please use the email you were invited with."
+        }
       )
   
   }

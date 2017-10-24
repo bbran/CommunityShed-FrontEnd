@@ -13,6 +13,7 @@ export class LogInComponent implements OnInit {
 
   @ViewChild('logInForm') userData: NgForm;
   fullUser;
+  private messageToShow: string;
 
   constructor(private dataservice: DataService, private router: Router) { }
 
@@ -32,10 +33,13 @@ export class LogInComponent implements OnInit {
             console.log(this.fullUser)
             this.router.navigateByUrl('/communityshed');
           } else {
-            alert ("Email is already reagistered. Please register with unique email.")
+            alert ("Invalid credentials. Please try again.")
           }
         },
-        error => console.log(error)
+        error => {
+          console.log(error)
+          this.messageToShow = "Invalid credentials. Please try again.";
+        }
       )
   
   }

@@ -12,6 +12,8 @@ import { NgForm } from '@angular/forms';
 export class RequestFormComponent implements OnInit {
 
   @ViewChild('requestform') requestData: NgForm;
+
+  private messageToShow: string;
   
   constructor(private dataservice: DataService, private location: Location, private route: ActivatedRoute, private router: Router) { }
 
@@ -31,7 +33,10 @@ export class RequestFormComponent implements OnInit {
               alert ("There was a problem with your request")
             }
           },
-          error => console.log(error)
+          error => {
+            console.log(error)
+            this.messageToShow = "There was a problem with your request"
+            }
         )
   }
 }

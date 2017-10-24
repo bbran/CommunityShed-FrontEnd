@@ -84,10 +84,10 @@
   <tbody>
     <tr *ngFor="let tool of availableTools">
       <td> <img src="{{tool?.image}}" height="50px"/></td>
-      <td>{{tool.category}}</td>
-      <td>{{tool.toolName}}</td>
-      <td>{{tool.toolDescription}}</td>
-      <td>{{tool.status}}</td>
+      <td>{{tool?.categoryName}}</td>
+      <td>{{tool?.toolName}}</td>
+      <td>{{tool?.toolDescription}}</td>
+      <td>{{tool?.status}}</td>
       <td>
           <button button class="btn btn-primary" [routerLink]="['/tooldetails/', tool.id]">Tool Details</button>
           <button button class="btn btn-primary" (click)="changeToolStatus(tool.status, tool.id)">Change Tool Status</button>

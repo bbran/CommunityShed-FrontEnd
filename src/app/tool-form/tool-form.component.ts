@@ -23,6 +23,8 @@ export class ToolFormComponent implements OnInit {
   addedTool;
   toolCategories: any[];
 
+  private messageToShow: string;
+
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute,
@@ -70,7 +72,10 @@ export class ToolFormComponent implements OnInit {
               alert ("no results found")
             }
           },
-          error => console.log(error)
+          error => {
+            console.log(error)
+            this.messageToShow = "Email not recognized for that invitation key. Please use the email you were invited with."
+            }
         )
     }
   }

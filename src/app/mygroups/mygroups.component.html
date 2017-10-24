@@ -1,13 +1,13 @@
 <app-navigation></app-navigation>
 
 <div class="mygroups">
-  <h3>My Groups</h3>
+  <h3>Groups That You Belong To:</h3>
   <table>
     <thead>
     </thead>
     <tbody>
       <tr *ngFor="let group of groups" [routerLink]="['/groupdetails/', group.id]" >
-        <td><h4>{{group?.groupName}}</h4></td>
+        <td class="group"><h4>{{group?.groupName}}</h4></td>
       </tr>
     </tbody>
   </table>
@@ -15,7 +15,7 @@
 </div>
 
 <div class="mygroupstable" [ngClass]="{ 'is-hidden': !pendinggroups || !pendinggroups.length }">
-  <h3>Join Us!</h3>
+  <h3>Pending Group Invitations:</h3>
   <p></p>
   <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" id="pendingGroupTable">
     <thead>

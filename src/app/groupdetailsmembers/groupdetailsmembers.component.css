@@ -1,6 +1,6 @@
 .groupMembers {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     padding-top: 20px;
     font-family: 'Roboto', sans-serif;
     color: #7f7f7f;
@@ -13,9 +13,14 @@ button {
 }
 
 h4{
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 td {
 text-align: center;
+}
+
+.member {
+    display: flex;
+    justify-content: left;
 }

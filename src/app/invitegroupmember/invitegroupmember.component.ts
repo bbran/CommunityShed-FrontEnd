@@ -16,6 +16,7 @@ export class InvitegroupmemberComponent implements OnInit {
 
   groupID;
   @ViewChild('inviteGroupMember') userData: NgForm;
+  private messageToShow: string;
   
     constructor(
       private dataservice: DataService, 
@@ -34,10 +35,9 @@ export class InvitegroupmemberComponent implements OnInit {
         result => {
           console.log(result)
           if (result === true) {
-            alert("Member invited successfully.")
-            this.location.back()
+            this.messageToShow = "Invite has been sent!"
           }else {
-            alert("Invite not made.")
+            this.messageToShow = "Invite not sent. Please try again."
           }
         },
         error => alert("There was an error with this invite and it was not sent. Either the email entered already has a pending request for this group, or this email is not valid. Please re-enter a valid email address.")

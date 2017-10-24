@@ -44,3 +44,11 @@ textarea {
     margin-left: 20px;
     height: 100px;
 }
+
+.ng-invalid.ng-touched {
+   border-color: red;
+}
+
+.message {
+   color: red;
+}

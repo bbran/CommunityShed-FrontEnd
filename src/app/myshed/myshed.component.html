@@ -61,7 +61,7 @@
       <td>{{loanedTool.status}}</td>      
       <td>
           <button button class="btn btn-primary" [routerLink]="['/tooldetails/', loanedTool.id]">Tool Details</button>
-          <button button class="btn btn-primary" (click)="returnTool(loanedTool.id)">Return Tool</button>
+          <button button class="btn btn-primary" (click)="returnTool(loanedTool.id)">Mark As Returned</button>
           
       </td>      
     </tr>

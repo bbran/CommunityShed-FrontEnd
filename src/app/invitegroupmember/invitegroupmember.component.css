@@ -1,6 +1,7 @@
 .inviteNewMemberForm {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: left;
     padding-top: 20px;
     font-family: 'Roboto', sans-serif;
     color: #7f7f7f;
@@ -8,14 +9,15 @@
 
 .header {
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 button {
     background: #b8cecf;
     color: black;
     border-color: #7f7f7f;
-    margin-left: 50px;
+    display: flex;
+    justify-content: center;
 }
 
 h4{
@@ -23,9 +25,14 @@ h4{
 }
 
 input {
-    width: 250px;
+    width: 280px;
     margin-bottom: 20px;
 }
+
 label, input{
     display: block;
+}
+
+.col-sm-10  {
+    padding-left: 0px;
 }

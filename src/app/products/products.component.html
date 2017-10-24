@@ -1,4 +1,4 @@
-<div class="productsearch">
+<div class="product-search">
   <div class="header">
     <h3>Or Search The Product Catalog:</h3>
   </div>
@@ -8,21 +8,45 @@
       <button type="submit" class="btn btn-primary">Search</button>
     </form>
   </div>
-  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="requestedTable" class="table table-striped table-bordered" style="width:100%">
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th>Product Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let product of products">
-          <td><img src="{{product.images[0]}}"></td>
-          <td>{{product.name}}</td>
-          <td>
-            <button>Just a button</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  </div>
+  <div *ngIf="products" class="product-table">
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <colgroup>
+      <col span="1" style="width: 6%;">
+      <col span="1" style="width: 18%;">
+      <col span="1" style="width: 20%;">
+      <col span="1" style="width: 45%;">
+      <col span="1">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Product Name</th>
+        <th>Specifications</th>
+        <th>Product Details</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td><img src="{{product.images[0]}}"height="50px"></td>
+        <td>{{product.name}}</td>
+        <td>
+          <b>Manufacturer:</b> {{product.manufacturer}}
+          <br>
+          <b>Model:</b> {{product.model}}
+          <br>
+          <b>MPN:</b> {{product.mpn}}
+          <br>
+          <b>Dimensions(mm):</b> H{{product.length}} x L{{product.length}} x W{{product.width}}
+          <br>
+          <b>Color:</b> {{product.color}}
+        </td>
+        <td><b>Additional Detail:</b> {{product.features.blob}}</td>
+        <td>
+          <button (click)="copyProductDetails(product.name, product.manufacturer, product.features.blob, product.model, product.mpn, product.images[0])">Copy Product Details</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

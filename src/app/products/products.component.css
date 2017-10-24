@@ -1,4 +1,4 @@
-.productsearch {
+.product-search {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -6,6 +6,13 @@
     padding-top: 50px;
     font-family: 'Roboto', sans-serif;
     color: #7f7f7f;
+}
+
+.product-table {
+    display: flex;
+    justify-content: center;
+    width: 75%;
+    margin: auto;
 }
 
 .searchform {

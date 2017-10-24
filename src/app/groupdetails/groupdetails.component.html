@@ -1,7 +1,7 @@
 <app-navigation></app-navigation>
 
 <div class="toolsdisplay">
-<h2>Available Tools in {{ groupdetails?.groupName }}</h2>
+<h3>Available Tools in {{ groupdetails?.groupName }}</h3>
 
 <div class="all">
 <div class="tablestyle">
@@ -18,12 +18,13 @@
   <tbody>
     <tr *ngFor="let tool of availableTools">
       <td> <img src="{{tool?.image}}" height="50px"/></td>
-      <td>{{tool?.category}}</td>
+      <td>{{tool?.categoryName}}</td>
       <td>{{tool?.toolName}}</td>
       <td>{{tool?.toolDescription}}</td>
       <td>
         <button class="btn btn-primary" [routerLink]="['/tooldetails/', tool.id]">Tool Details</button>
-        <button class="btn btn-primary" data-id={{tool.id}} routerLink='/requestform'>Request Tool</button>
+        <button class="btn btn-primary" [routerLink]="['/requestform/', tool.id]">Request Tool</button>
+        <!-- <button class="btn btn-primary" data-id={{tool.id}} routerLink='/requestform'>Request Tool</button> -->
       </td>
     </tr>
   </tbody>

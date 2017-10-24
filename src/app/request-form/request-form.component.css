@@ -33,6 +33,8 @@ input {
     margin-bottom: 20px;
 }
 
-#description {
+textarea {
+    width: 300px;
+    margin-bottom: 20px;
     height: 100px;
 }

@@ -5,19 +5,11 @@
         <h3>Tool Details</h3>      
     </div>
     <input [ngModel]="tool?.id" ngModel #model="ngModel" type="hidden" name="id">  
-
+    <input [ngModel]="tool?.image" ngModel #model="ngModel" type="hidden" name="image">
     <label for="category" class="col-sm-2 control-label">Category</label>
     <div class="col-sm-10">
     <select class="form-control" [(ngModel)]="tool.category" id="category" name="category" required>
-      <option value="handtools">Hand Tools</option>
-      <option value="powertool">Power Tools</option>
-      <option value="landscapingtool">Landscaping</option>
-      <option value="automotivetools">Automotive</option>
-      <option value="woodworkingtool">Woodworking</option>
-      <option value="electricaltool">Electrical</option>
-      <option value="ladersliftstool">Ladders/Lifts</option>
-      <option value="plumbingtool">Plumbing</option>
-      <option value="weldingtool">Welding</option>
+      <option *ngFor="let category of toolCategories" [value]="category.id">{{ category.text }}</option>
     </select>
   </div>
 
@@ -36,7 +28,7 @@
     <div class="form-group">
       <label for="text" class="col-sm-2 control-label">Tool Description</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" [ngModel]="tool?.toolDescription" ngModel #model="ngModel" id="toolDescription" name="toolDescription" required>
+        <textarea type="text" class="form-control" [ngModel]="tool?.toolDescription" ngModel #model="ngModel" id="toolDescription" name="toolDescription" required></textarea>
       </div>
     </div>
     <div class="form-group">
@@ -54,4 +46,7 @@
 </div>
 <div class="bottomlink">
 <a (click)="this.location.back()">&lt;-- Return to Previous Page</a>
+</div>
+<div>
+    <app-products *ngIf="!tool.id" (onSelectProduct)="onSelectProduct($event)"></app-products>
 </div>

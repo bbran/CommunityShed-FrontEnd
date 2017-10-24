@@ -38,7 +38,6 @@ export class AddimageComponent implements OnInit {
           .subscribe(
             data => {
               if(data !== null){
-                alert('Image successfully added!'),
                 this.router.navigateByUrl('/tooldetails/' + this.tool.id)
               }else{
                 alert('image was not updated')

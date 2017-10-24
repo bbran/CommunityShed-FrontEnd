@@ -1,7 +1,6 @@
 .invitenewuser {
     display: flex;
     justify-content: center;
-    padding-top: 200px;
     font-family: 'Roboto', sans-serif;
     color: #7f7f7f;
 }
@@ -25,4 +24,31 @@ h3{
 input {
     width: 300px;
     margin-bottom: 20px;
+}
+
+.background {
+    width: 100%;
+    height: 1707px;
+    padding-top: 300px;
+    background-image: url("/assets/images/homepage_background.jpg");
+}
+
+.all{
+    background-color: #FCFCFC;
+    margin: auto;
+    width: 50%;
+    height: auto;
+    padding: 20px 75px;
+    border-color: #7f7f7f;
+    border: 2px solid;
+    border-radius: 4px;
+}
+
+img {
+    width: auto;
+}
+
+.logo{
+    display: flex;
+    padding-bottom: 10px;
 }

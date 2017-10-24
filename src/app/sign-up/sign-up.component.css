@@ -37,7 +37,7 @@ input {
     background-color: #FCFCFC;
     margin: auto;
     width: 50%;
-    height: 36%;
+    height: auto;
     padding: 20px 75px;
     border-color: #7f7f7f;
     border: 2px solid;

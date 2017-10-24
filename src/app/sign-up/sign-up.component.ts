@@ -29,8 +29,7 @@ submitNewUser(){
           this.fullUser = result
           localStorage.setItem("email", this.fullUser.email)
           localStorage.setItem("firstName", this.fullUser.firstName)
-          alert("User created successfully.")
-          this.router.navigateByUrl('/communityshed');
+          this.router.navigateByUrl('/myshed');
         } else {
           alert ("Email is already reagistered. Please register with unique email.")
         }

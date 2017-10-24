@@ -1,5 +1,8 @@
-img {
+.logo img {
+    width: 100%;
     height: auto;
+    /* min-width: 300px; */
+    display: block;
 }
 
 h1{
@@ -17,7 +20,6 @@ button {
 }
 
 .logo{
-    display: flex;
     padding-bottom: 50px;
 }
 
@@ -25,7 +27,8 @@ button {
     background-color: #FCFCFC;
     margin: auto;
     width: 50%;
-    height: 29%;
+    min-width: 400px;
+    height: auto;
     padding: 50px 50px;
     border-color: #7f7f7f;
     border: 2px solid;

@@ -25,7 +25,10 @@
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">Send Request to Owner</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!requestform.valid">Send Request to Owner</button>
+          <h4 class="message" *ngIf="messageToShow">{{messageToShow}}</h4>
+
+        <!-- <button type="submit" class="btn btn-primary">Send Request to Owner</button> -->
         <!-- i made this an a instead of a button because it was still making the submit request when it had the button tag -->
         <a (click)="this.location.back()" class="btn">Cancel Request</a>
       </div>

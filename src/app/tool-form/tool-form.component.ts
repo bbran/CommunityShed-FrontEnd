@@ -74,7 +74,7 @@ export class ToolFormComponent implements OnInit {
           },
           error => {
             console.log(error)
-            this.messageToShow = "Email not recognized for that invitation key. Please use the email you were invited with."
+            this.messageToShow = "Invalid Information"
             }
         )
     }

@@ -48,13 +48,13 @@ export class ProductsComponent implements OnInit {
   }
 
   copyProductDetails(toolName: string, manufacturer: string, details: string, model: string, mpn: string, imageUrl: string) {
-    toolName = toolName !== null ? JSON.stringify(toolName.substring(0, 30)) : "";
+    toolName = toolName !== null ? JSON.stringify(toolName.substring(0, 50)) : "";
     manufacturer = manufacturer !== null ? JSON.stringify(manufacturer.substring(0, 30)) : "";
     model = model !== null ? model : "";
     mpn = mpn !== null ? mpn : "";
     details = details !== null ? details : "";
     let toolDescription = `Model: ${model}; MPN: ${mpn}; Details: ${details}`
-    toolDescription = JSON.stringify(toolDescription.substring(0, 80));
+    toolDescription = JSON.stringify(toolDescription.substring(0, 255));
     this.toolDetail = `{"toolName": ${toolName}, "manufacturer": ${manufacturer}, "toolDescription": ${toolDescription}, "image": "${imageUrl}"}`
     this.onSelectProduct.emit(JSON.parse(this.toolDetail));
     window.scrollTo(0,0);

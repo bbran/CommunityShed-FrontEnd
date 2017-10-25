@@ -37,9 +37,18 @@ export class ProductsComponent implements OnInit {
     this.dataservice.getProducts(this.searchString)
       .subscribe(
         results => {
-          this.products = results;
           setTimeout(() => {
-            this.dtTrigger.next();
+            const dtinst = this.table && this.table.dtInstance;
+            if (dtinst) {
+              dtinst.then(inst => {
+                inst && inst.destroy();
+                this.products = results;
+                this.dtTrigger.next();
+              })
+            } else {
+              this.products = results;
+              this.dtTrigger.next();
+            }
           }, 100);
           console.log(this.products);
         },

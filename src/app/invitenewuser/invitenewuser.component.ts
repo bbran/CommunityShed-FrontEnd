@@ -59,8 +59,7 @@ export class InvitenewuserComponent implements OnInit {
             this.fullUser = result
             localStorage.setItem("email", this.fullUser.email)
             localStorage.setItem("firstName", this.fullUser.firstName)
-            alert("User created successfully.")
-            this.router.navigateByUrl('/mygroups');
+            this.router.navigateByUrl('/communityshed');
           } else {
             alert ("not working")
           }

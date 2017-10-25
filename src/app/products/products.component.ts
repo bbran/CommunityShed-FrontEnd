@@ -63,7 +63,7 @@ export class ProductsComponent implements OnInit {
     mpn = mpn !== null ? mpn : "";
     details = details !== null ? details : "";
     let toolDescription = `Model: ${model}; MPN: ${mpn}; Details: ${details}`
-    toolDescription = JSON.stringify(toolDescription.substring(0, 255));
+    toolDescription = JSON.stringify(toolDescription.substring(0, 80));
     this.toolDetail = `{"toolName": ${toolName}, "manufacturer": ${manufacturer}, "toolDescription": ${toolDescription}, "image": "${imageUrl}"}`
     this.onSelectProduct.emit(JSON.parse(this.toolDetail));
     window.scrollTo(0,0);

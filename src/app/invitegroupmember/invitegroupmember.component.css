@@ -36,3 +36,7 @@ label, input{
 .col-sm-10  {
     padding-left: 0px;
 }
+
+input.ng-invalid.ng-touched {
+    border-color: red;
+}

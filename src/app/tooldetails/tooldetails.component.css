@@ -8,6 +8,7 @@
 .textdisplay{
     font-family: 'Roboto', sans-serif;
     color: #7f7f7f;
+    width: 500px;
 }
 
 .image {
@@ -18,7 +19,7 @@ button {
     background: #b8cecf;
     color: black;
     border-color: #7f7f7f;
-    margin: 0px 15px 0px 15px;
+    margin: 0px 30px 0px 0px;
 }
 
 h3 {

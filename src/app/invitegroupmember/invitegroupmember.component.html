@@ -1,7 +1,7 @@
 
 <div class="inviteNewMemberForm">
 
-  <form (ngSubmit)="inviteNewMember(inviteGroupMember)" #inviteGroupMember="ngForm">
+  <form (ngSubmit)="inviteNewMember(inviteGroupMember); inviteGroupMember.reset()" #inviteGroupMember="ngForm">
     
     <div class="header">
         <h3>Invite a friend to the Group:</h3>      
@@ -9,15 +9,15 @@
     <div class="form-group">
       <!-- <label for="email" class="col-sm-2 control-label">Email</label> -->
       <div class="col-sm-10">
-        <input type="email" class="form-control" ngModel #model="ngModel" id="email" name="email" placeholder="Enter an email address to invite" required>
+        <input type="email" email class="form-control" ngModel #model="ngModel" id="email" name="email" placeholder="Enter an email address to invite" required>
       </div>
     </div>
     <div class="form-group">
       <div class="col-sm-10">
-        <button type="submit" class="btn btn-primary">Send Invite</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!inviteGroupMember.valid">Send Invite</button>
       </div>
     </div>
   </form>
   <br>
-  <h4 class="message" *ngIf="messageToShow">{{messageToShow}}</h4>
+  <h4 class="message" *ngIf="messageToShow" [hidden]="!inviteGroupMember.pristine">{{messageToShow}}</h4>
 </div>
